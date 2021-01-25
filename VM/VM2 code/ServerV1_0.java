@@ -8,12 +8,13 @@ import java.net.*;
 
 public class ServerV1_0 {
     public static void main(String[] args) {
-        while (true) {
+        
             try {
                 // creating the server
                 System.out.println("server started");
                 ServerSocket ss = new ServerSocket(7789);
                 System.out.println("server is waiting for client reqeut");
+                while(true){
                 // listening on the port
                 Socket s = ss.accept();//establishes connection
                 System.out.println("Client connected");
@@ -21,10 +22,11 @@ public class ServerV1_0 {
 
                 String str = (String) dis.readUTF();
                 System.out.println("message= " + str);
-                ss.close();
+                //ss.close();
+            } 
             } catch (Exception e) {
                 System.out.println(e);
             }
-        }
+        
     }
 }
