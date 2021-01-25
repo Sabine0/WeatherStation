@@ -1,8 +1,12 @@
 import java.io.*;
 import java.net.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Collections;
 
 /**
- * deze klasse luistert naar een poort en als er een klient is gaat die de data
+ * deze klasse luistert naar een poort en als er een client is gaat die de data
  * ontvangen.
  *
  */
