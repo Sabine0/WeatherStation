@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Asia</title>
+	<title>Air pressure in Asia</title>
 	<h1> Air pressure of *weather station name here* in millibar.</h1>
 </head>
 
@@ -40,6 +40,8 @@
 
 </br>
 <button>Download this data!</button>
+</br>
+<input type="button" value="Go back" onclick="history.go(-1)">
 
 </body>
 </html>

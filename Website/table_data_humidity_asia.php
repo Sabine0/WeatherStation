@@ -3,7 +3,7 @@ Downloadable data in XML format-->
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Asia</title>
+	<title>Humidity in Asia</title>
 	<h1> Humidity of top 10 weather stations in Asia with an average temperature between 27 and 29.5 degrees Celcius.</h1>
 </head>
 
@@ -45,6 +45,8 @@ Downloadable data in XML format-->
 
 </br>
 <button>Download this data!</button>
+</br>
+<input type="button" value="Go back" onclick="history.go(-1)">
 
 </body>
 </html>

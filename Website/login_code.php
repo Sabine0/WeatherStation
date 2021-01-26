@@ -7,10 +7,8 @@ if (isset($_POST['submit'])) {
     
     require_once 'dbcon.php';
     require_once 'functions.php'; 
-    
 
     loginUser($conn, $username, $pswd);
-    header("location ../Website/login_page.php");
 }
 
 else {
