@@ -8,10 +8,11 @@ if (isset($_POST['submit'])) {
     require_once 'dbcon.php';
     require_once 'functions.php'; 
     
-    echo $pswd;
-    
+
     loginUser($conn, $username, $pswd);
+    header("location ../Website/login_page.php");
 }
+
 else {
     header("location ../Website/login_page.php");
     exit();

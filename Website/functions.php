@@ -45,6 +45,7 @@ function usernameExists($conn, $username) {
 }
 
 function createUser($conn, $user, $username, $pswd) {
+    $pswd = sha1($pswd);
     $sql = "INSERT INTO users (username, password) VALUES (?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -52,9 +53,7 @@ function createUser($conn, $user, $username, $pswd) {
         exit();
     }
 
-    $hashedPswd = password_hash($pswd, PASSWORD_DEFAULT);
-
-    mysqli_stmt_bind_param($stmt, "ss", $username, $hashedPswd);
+    mysqli_stmt_bind_param($stmt, "ss", $username, $pswd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: http://localhost/WeatherStation/Website/login_page.php?error=signedup");
@@ -62,27 +61,21 @@ function createUser($conn, $user, $username, $pswd) {
 }
 
 function loginUser($conn, $username, $pswd) {
+    $pswd = sha1($pswd);
     $usernameExists = usernameExists($conn, $username);
-    
     if ($usernameExists === false) {
         header("location: ../Website/login_page.php?error=wronglogin1");
         exit();
     }
-    
-    // password in database of user (this is a hashed password)
-    $pswdHashed = $usernameExists["password"];
-    // dehashes password from database and compares it with password from login form
-    $checkPswd = password_verify($pswd, $pswdHashed);
-    
-    if (!$checkPswd) {
-        header("location: ../Website/login_page.php?error=wronglogin2");
-        exit();
-    }
-    else {
-        session_start();
-        $_SESSION["username"] = $usernameExists["username"];
+
+    $pswddb = $usernameExists['password'];
+ 
+    if ($pswddb == $pswd){
         header("location: ../Website/start.html");
         exit();
     }
-    
+ 
+    header("location: ../Website/login_page.php?error=wronglogin2");
+    exit();
+  
 }
