@@ -74,20 +74,15 @@ function loginUser($conn, $username, $pswd) {
     // dehashes password from database and compares it with password from login form
     $checkPswd = password_verify($pswd, $pswdHashed);
     
-    $hashedPswd2 = password_hash($pswd, PASSWORD_DEFAULT);
-    
-//    if (!$checkPswd) {
-//        header("location: ../Website/login_page.php?error=wronglogin2");
-//        exit();
-//    }
-//    else {
-//        session_start();
-//        $_SESSION["username"] = $usernameExists["username"];
-//        header("location: ../Website/start.html");
-//        exit();
-//    }
-    if ($hashedPswd2 == $usernameExists["password"]) {
-        echo 'hi'; 
+    if (!$checkPswd) {
+        header("location: ../Website/login_page.php?error=wronglogin2");
+        exit();
+    }
+    else {
+        session_start();
+        $_SESSION["username"] = $usernameExists["username"];
+        header("location: ../Website/start.html");
+        exit();
     }
     
 }
