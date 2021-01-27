@@ -4,6 +4,9 @@
 	Downloadable data in XML format.
 	-->
 
+
+<!--This file needs to be moved to map.php in the future!-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,10 +43,8 @@
 </table>
 
 </br>
-<button>Download this data!</button>
-</br>
-<input type="button" value="Go back" onclick="history.go(-1)">
-
+<button><a href="table_data_humidity_asia.php" download="WeatherData.xml">Download this data!</button>
+<!--Removed the back button, the university logo will be used to go back to home in the future-->
 </body>
 </html>
 
