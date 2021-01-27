@@ -18,7 +18,7 @@ public class ServerV1_0 {
             // creating the server
             System.out.println("server started");
             ServerSocket ss = new ServerSocket(7789);
-            System.out.println("server is waiting for client request");
+            System.out.println("server is waiting for client reqeut");
             while (true) {
                 // listening on the port
                 Socket s = ss.accept();// establishes connection
@@ -26,7 +26,7 @@ public class ServerV1_0 {
                 DataInputStream dis = new DataInputStream(s.getInputStream());
 
                 String str = (String) dis.readUTF();
-                Path file = Paths.get("WeatherData.xml");
+                Path file = Paths.get("testfilename.xml");
                 Files.write(file, Collections.singleton(str));
                 System.out.println("message= " + str);
                 // ss.close();
