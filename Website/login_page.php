@@ -1,24 +1,47 @@
-<!DOCTYPE html>
+<?php
+    require 'header.php';
+?>
+
 <html>
     <head>
         <title>Login</title>
-        <h1>Login</h1>
+        <link rel="stylesheet" href="CSS/styling.css">
     </head>
         <body>
-            <form action="login_code.php" method="POST">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter username" name="uname" required>
+            <div class="bg-image"></div>
+            <div class ="login-background">
+                <div class="login-box">
 
-                <label for="pswd"><b>Password</b></label>
-                <input type="Password" placeholder="Enter password" name="pswd" required>
+                    <h1>Login</h1>
+                    <form action="login_code.php" method="POST">
 
-                <input type="submit" name="submit" value="Login">
-            </form>
+                        <div class="textbox">
+                            <i class="fa fa-user"></i>
+                            <input type="text" placeholder="Enter username" name="uname" required>
+                        </div>
 
-            <form>
-                <input type="button" value="Go back" onclick="history.go(-1)">
-            </form>
+                        <div class="textbox">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" placeholder="Enter password" name="pswd" required>
+                        </div>
 
+                        <div style="padding-top: 10px">
+                            <p class="alignleft">
+                                <input type="submit" name="submit" value="Login"
+                            </p>
+                    
+                            <p class="alignright">Don't have an account?
+                                <a href="signup_page.php">
+                                    Sign Up
+                                </a>
+                            </p>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+            
             <?php
                 // when de URL contains an error, display text
                 if (isset($_GET["error"])) {

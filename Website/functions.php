@@ -71,7 +71,7 @@ function loginUser($conn, $username, $pswd) {
     $pswddb = $usernameExists['password'];
  
     if ($pswddb == $pswd){
-        header("location: ../Website/start.html");
+        header("location: ../Website/start.php");
         exit();
     }
  

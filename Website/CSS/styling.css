@@ -1,0 +1,124 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+}
+
+.bg-image {
+    background: url(../afbeeldingen/UniversityOfThePhilippines.jpg) no-repeat;
+
+    /* add the blur effect */
+    -webkit-filter: blur(2px);
+
+    /* full height */
+    height: 100%; 
+
+    /* center and scale the image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-box {
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.login-box h1 {
+    float: left;
+    font-size: 40px;
+    border-bottom: 6px solid #4caf50;
+    margin-bottom: 50px;
+    padding: 13px 0
+}
+
+.textbox {
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid #4caf50;
+}
+
+.textbox i {
+    width: 26px;
+    float: left;
+    text-align: center;
+}
+
+.textbox input {
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+}
+
+.login-background {
+    width:350px; 
+    height:330px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 15px; 
+} 
+
+.start-background {
+    width:750px; 
+    height:650px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 3px;  
+}
+
+.start-box {
+    width: 555px;
+    margin: 0 auto;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    padding-bottom: 60px;
+}
+
+.img-box {
+    display: block;
+    width: 750px;
+    height: 120px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.signup-background {
+    width:350px; 
+    height:360px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 15px; 
+
+}
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+    font-size: 12px;
+}
