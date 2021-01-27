@@ -35,7 +35,16 @@ body {
     font-size: 40px;
     border-bottom: 6px solid #4caf50;
     margin-bottom: 50px;
-    padding: 13px 0
+    padding: 13px 0;
+}
+
+.textbox-error {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding: 8px 0;
+    margin: 8px 0;
+    color: red;
 }
 
 .textbox {
@@ -65,8 +74,8 @@ body {
 }
 
 .login-background {
-    width:350px; 
-    height:330px; 
+    width:370px; 
+    height: 380px; 
     position: absolute;
     top: 50%;
     left: 50%;
@@ -104,15 +113,14 @@ body {
 }
 
 .signup-background {
-    width:350px; 
-    height:360px; 
+    width:370px; 
+    height:400px; 
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.85);
     border-radius: 15px; 
-
 }
 .alignleft {
     float: left;

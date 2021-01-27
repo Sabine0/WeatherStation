@@ -38,18 +38,23 @@
                         </div>
 
                     </form>
+                    
+                    <?php
+                        // when de URL contains an error, display text
+                        if (isset($_GET["error"])) { ?>
+                        <div class="textbox-error"> <?php
+                            if ($_GET["error"] == "signedup") {
+                                echo "<p>U heeft zich succesvol geregistreerd!";
+                            }
+                            else if ($_GET["error"] == "wronglogin") {
+                                echo "<p>Wrong login credentials! Try again.";
+                            }
+                        }
+                    ?>
+                        </div>
 
                 </div>
             </div>
-            
-            <?php
-                // when de URL contains an error, display text
-                if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "signedup") {
-                        echo "<p>U heeft zich succesvol geregistreerd!";
-                    }
-                }
-            ?>
 
         </body>
 </html>

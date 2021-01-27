@@ -37,27 +37,32 @@
                         </div>
 
                     </form>
+                    
+                        <?php
+                            // when de URL contains an error, display text 
+                            if (isset($_GET["error"])) { ?>
+                            <div class="textbox-error">
+                                <?php if ($_GET["error"] == "invalidusername") { 
+                                echo "<p>De username bevat tekens die niet zijn toegestaan."; 
+                                }
+                                else if ($_GET["error"] == "usernametaken") {
+                                    echo "<p>De door u ingevoerde username bestaat al. Probeer een andere username.";
+                                }
+                                else if ($_GET["error"] == "passwordsdontmatch") {
+                                    echo "<p>De ingevoerde wachtwoorden komen niet overeen.";
+                                }
+                                else if ($_GET["error"] == "stmtfailed") {
+                                    echo "<p>Er is iets fout gegaan, probeer opnieuw!.";
+                                }
+                            }
+                        ?>
+                            </div>
+                    </div>
 
                 </div>
             </div>
 
-            <?php
-                // when de URL contains an error, display text 
-                if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "invalidusername") {
-                        echo "<p>De username bevat tekens die niet zijn toegestaan.";
-                    }
-                    else if ($_GET["error"] == "usernametaken") {
-                        echo "<p>De door u ingevoerde username bestaat al. Probeer een andere username.";
-                    }
-                    else if ($_GET["error"] == "passwordsdontmatch") {
-                        echo "<p>De ingevoerde wachtwoorden komen niet overeen.";
-                    }
-                    else if ($_GET["error"] == "stmtfailed") {
-                        echo "<p>Er is iets fout gegaan, probeer opnieuw!.";
-                    }
-                }
-            ?>
+            
 
         </body>
 </html>

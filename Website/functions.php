@@ -64,7 +64,7 @@ function loginUser($conn, $username, $pswd) {
     $pswd = sha1($pswd);
     $usernameExists = usernameExists($conn, $username);
     if ($usernameExists === false) {
-        header("location: ../Website/login_page.php?error=wronglogin1");
+        header("location: ../Website/login_page.php?error=wronglogin");
         exit();
     }
 
@@ -75,7 +75,7 @@ function loginUser($conn, $username, $pswd) {
         exit();
     }
  
-    header("location: ../Website/login_page.php?error=wronglogin2");
+    header("location: ../Website/login_page.php?error=wronglogin");
     exit();
   
 }
