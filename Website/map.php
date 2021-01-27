@@ -20,26 +20,46 @@
                     <map name="weatherstations"> 
                         <!--pixels from left, pixels from top, pixels from left, pixels from top-->
                         <area shape="rect" coords="580, 50, 610, 80" alt="Basco" href="table_data_airpressure.php">
-                        <area shape="rect" coords="490, 240, 510, 260" alt="Laoag" href="table_data_airpressure.php">
-                        <area shape="rect" coords="480, 270, 500, 290" alt="Sinait" href="table_data_airpressure.php">
-                        <area shape="rect" coords="570, 230, 590, 250" alt="Aparri" href="table_data_airpressure.php">
-                        <area shape="rect" coords="445, 475, 465, 495" alt="Iba" href="table_data_airpressure.php">
-                        <area shape="rect" coords="470, 420, 490, 440" alt="Dagupan" href="table_data_airpressure.php">
-                        <area shape="rect" coords="490, 390, 510, 410" alt="Baguio" href="table_data_airpressure.php">
-                        <area shape="rect" coords="530, 465, 550, 485" alt="Cabanatuan" href="table_data_airpressure.php">
-                        <area shape="rect" coords="520, 545, 540, 565" alt="Manila" href="table_data_airpressure.php">
-                        <area shape="rect" coords="460, 520, 480, 540" alt="Subic Bay" href="table_data_airpressure.php">
-                        <area shape="rect" coords="525, 530, 545, 550" alt="Science garden" href="table_data_airpressure.php">
-                        <area shape="rect" coords="535, 640, 555, 660" alt="Calapan" href="table_data_airpressure.php">
-                        <area shape="rect" coords="525, 735, 545, 755" alt="Ambulong" href="table_data_airpressure.php">
-                        <area shape="rect" coords="545, 540, 565, 560" alt="Tanay" href="table_data_airpressure.php">
-                        <area shape="rect" coords="665, 580, 685, 600" alt="Daet" href="table_data_airpressure.php">
-                        <area shape="rect" coords="725, 660, 745, 680" alt="Legaspi" href="table_data_airpressure.php">
-                        <area shape="rect" coords="760, 625, 780, 645" alt="Virac" href="table_data_airpressure.php">
-                        <area shape="rect" coords="775, 615, 795, 635" alt="Catanduanes radar" href="table_data_airpressure.php">
-                        <area shape="rect" coords="525, 720, 545, 740" alt="San Jose" href="table_data_airpressure.php">
-                        <area shape="rect" coords="615, 705, 635, 725" alt="Romblon" href="table_data_airpressure.php">
-                        <area shape="rect" coords="615, 705, 635, 725" alt="Romblon" href="table_data_airpressure.php">
+        <area shape="rect" coords="490, 240, 510, 260" alt="Laoag" href="table_data_airpressure.php">
+        <area shape="rect" coords="480, 270, 500, 290" alt="Sinait" href="table_data_airpressure.php">
+        <area shape="rect" coords="570, 230, 590, 250" alt="Aparri" href="table_data_airpressure.php">
+        <area shape="rect" coords="445, 475, 465, 495" alt="Iba" href="table_data_airpressure.php">
+        <area shape="rect" coords="470, 420, 490, 440" alt="Dagupan" href="table_data_airpressure.php">
+        <area shape="rect" coords="490, 390, 510, 410" alt="Baguio" href="table_data_airpressure.php">
+        <area shape="rect" coords="530, 465, 550, 485" alt="Cabanatuan" href="table_data_airpressure.php">
+        <area shape="rect" coords="520, 545, 540, 565" alt="Manila" href="table_data_airpressure.php">
+        <area shape="rect" coords="460, 520, 480, 540" alt="Subic Bay" href="table_data_airpressure.php">
+        <area shape="rect" coords="525, 530, 545, 550" alt="Science garden" href="table_data_airpressure.php">
+      <area shape="rect" coords="535, 640, 555, 660" alt="Calapan" href="table_data_airpressure.php">
+      <area shape="rect" coords="525, 735, 545, 755" alt="Ambulong" href="table_data_airpressure.php">
+      <area shape="rect" coords="545, 540, 565, 560" alt="Tanay" href="table_data_airpressure.php">
+      <area shape="rect" coords="665, 580, 685, 600" alt="Daet" href="table_data_airpressure.php">
+      <area shape="rect" coords="725, 660, 745, 680" alt="Legaspi" href="table_data_airpressure.php">
+      <area shape="rect" coords="760, 625, 780, 645" alt="Virac" href="table_data_airpressure.php">
+      <area shape="rect" coords="775, 615, 795, 635" alt="Catanduanes radar" href="table_data_airpressure.php">
+      <area shape="rect" coords="525, 720, 545, 740" alt="San Jose" href="table_data_airpressure.php">
+      <area shape="rect" coords="615, 705, 635, 725" alt="Romblon" href="table_data_airpressure.php">
+      <area shape="rect" coords="655, 790, 675, 810" alt="Roxas" href="table_data_airpressure.php">
+      <area shape="rect" coords="710, 720, 730, 740" alt="Masbate" href="table_data_airpressure.php">
+      <area shape="rect" coords="795, 715, 815, 735" alt="Catarman" href="table_data_airpressure.php">
+      <area shape="rect" coords="815, 770, 835, 790" alt="Catbalogan" href="table_data_airpressure.php">
+      <area shape="rect" coords="850, 795, 870, 815" alt="Borongan" href="table_data_airpressure.php">
+      <area shape="rect" coords="820, 810, 840, 830" alt="Tacloban" href="table_data_airpressure.php">
+      <area shape="rect" coords="880, 830, 900, 850" alt="Guiuan" href="table_data_airpressure.php">
+      <area shape="rect" coords="345, 920, 365, 940" alt="Puerto Princesa" href="table_data_airpressure.php">
+      <area shape="rect" coords="640, 860, 660, 880" alt="Iloilo" href="table_data_airpressure.php">
+      <area shape="rect" coords="695, 975, 715, 995" alt="Dumaguete" href="table_data_airpressure.php">
+      <area shape="rect" coords="740, 945, 760, 965" alt="Tagbilaran" href="table_data_airpressure.php">
+      <area shape="rect" coords="740, 890, 760, 910" alt="Lahug" href="table_data_airpressure.php">
+      <area shape="rect" coords="740, 905, 760, 925" alt="Mactan" href="table_data_airpressure.php">
+      <area shape="rect" coords="860, 930, 880, 950" alt="Surigao" href="table_data_airpressure.php">
+      <area shape="rect" coords="785, 1055, 805, 1075" alt="Lumbia Airport" href="table_data_airpressure.php">
+      <area shape="rect" coords="795, 1040, 815, 1060" alt="Cagayan de Oro" href="table_data_airpressure.php">
+      <area shape="rect" coords="860, 1005, 880, 1025" alt="Butuan" href="table_data_airpressure.php">
+      <area shape="rect" coords="870, 1160, 890, 1180" alt="Davao Airport" href="table_data_airpressure.php">
+      <area shape="rect" coords="925, 1045, 945, 1065" alt="Hinatuan" href="table_data_airpressure.php">
+      <area shape="rect" coords="600, 1165, 620, 1185" alt="Zamboanga" href="table_data_airpressure.php">
+      <area shape="rect" coords="870, 1160, 890, 1180" alt="Gen. Santos" href="table_data_airpressure.php">
 
                     </map>
                 </div>
@@ -57,28 +77,4 @@ BESTAAT NIET
  (983275,'CLARK INTL','PHILIPPINES',15.183,120.55,151),
  (984280,'SANGLEY POINT AB','PHILIPPINES',14.5,120.917,2.1),
  (984290,'NINOY AQUINO INTERN','PHILIPPINES',14.517,121,15),
-
- 
- (985380,'ROXAS','PHILIPPINES',11.583,122.75,4),
- (985430,'MASBATE','PHILIPPINES',12.367,123.617,6),
- (985460,'CATARMAN','PHILIPPINES',12.5,124.633,7),
- (985480,'CATBALOGAN','PHILIPPINES',11.783,124.883,5),
- (985500,'TACLOBAN','PHILIPPINES',11.25,125,3),
- (985530,'BORONGAN','PHILIPPINES',11.65,125.433,3),
- (985580,'GUIUAN','PHILIPPINES',11.033,125.733,60),
- (986180,'PUERTO PRINCESA','PHILIPPINES',9.75,118.733,15),
- (986370,'ILOILO','PHILIPPINES',10.7,122.567,8),
- (986420,'DUMAGUETE','PHILIPPINES',9.3,123.3,8),
- (986440,'TAGBILARAN','PHILIPPINES',9.6,123.85,8),
- (986450,'LAHUG','PHILIPPINES',10.333,123.9,35),
- (986460,'MACTAN','PHILIPPINES',10.3,123.967,24),
- (986530,'SURIGAO','PHILIPPINES',9.8,125.5,55),
- (987470,'LUMBIA AIRPORT','PHILIPPINES',8.433,124.283,188),
- (987480,'CAGAYAN DE ORO','PHILIPPINES',8.483,124.633,6),
- (987520,'BUTUAN','PHILIPPINES',8.933,125.517,46),
- (987530,'DAVAO AIRPORT','PHILIPPINES',7.117,125.65,18),
- (987550,'HINATUAN','PHILIPPINES',8.367,126.333,3),
- (988360,'ZAMBOANGA','PHILIPPINES',6.9,122.067,6),
- (988510,'GEN. SANTOS','PHILIPPINES',6.117,125.183,15)
-
  ->
