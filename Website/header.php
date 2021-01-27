@@ -14,7 +14,7 @@
                     </div>
                 </a>
                 <ul class ="navigation">
-                    <a href="start.php"><li>Over Ons</li></a>
+                    <a href="start.php"><li>About us</li></a>
                     <a href="login_page.php"><li>Login</li></a>
                 </ul>
             </div>
