@@ -16,7 +16,7 @@
                 <div class="start-box">
 
                     <h2>Air pressure in the Philippines</h2>
-                    Click <a href="map.html">here</a> to see weather data for the Philippines
+                    Click <a href="map.php">here</a> to see weather data for the Philippines
                     </br></br></br>
 
                     <h2>Humidity in Asia</h2>

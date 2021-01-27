@@ -130,3 +130,19 @@ body {
     float: right;
     font-size: 12px;
 }
+
+.map-container-left {
+    float: left;
+    width: auto;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.map-container-right {
+    float: left;
+    width: auto;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
