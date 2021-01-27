@@ -14,10 +14,6 @@
                     <img src="afbeeldingen/logoWithText.png">
                 </div>
                 <div class="start-box">
-                    <h2>University of the Philippines: Climate research unit</h2>
-                    Click <a href="login_page.php">here</a> to log in,
-                    No account yet? Click <a href="signup_page.php">here</a> to sign up.
-                    </br></br></br>
 
                     <h2>Air pressure in the Philippines</h2>
                     Click <a href="map.html">here</a> to see weather data for the Philippines
