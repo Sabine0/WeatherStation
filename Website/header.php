@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -15,7 +19,18 @@
                 </a>
                 <ul class ="navigation">
                     <a href="start.php"><li>About us</li></a>
-                    <a href="login_page.php"><li>Login</li></a>
+                    
+                    <!--When user is not logged in, show login in header-->
+                    <?php if(empty($_SESSION['username'])){; ?>
+                        <a href="login_page.php"><li>Login</li></a>
+                    <!--else show name of user + logout button-->
+                    <?php } else {?> 
+                        <a><li>
+                    <?php echo $_SESSION['username'];?>
+                        </li></a>
+                        <a href="logout.php"><li>Logout</li></a> 
+                    <?php } ?>
+
                 </ul>
             </div>
         </div>

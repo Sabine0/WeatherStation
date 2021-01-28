@@ -71,6 +71,8 @@ function loginUser($conn, $username, $pswd) {
     $pswddb = $usernameExists['password'];
  
     if ($pswddb == $pswd){
+        session_start();
+        $_SESSION['username'] = $username;
         header("location: ../Website/start.php");
         exit();
     }
