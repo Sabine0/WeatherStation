@@ -43,16 +43,22 @@
                             if (isset($_GET["error"])) { ?>
                             <div class="textbox-error">
                                 <?php if ($_GET["error"] == "invalidusername") { 
-                                echo "<p>De username bevat tekens die niet zijn toegestaan."; 
+                                echo "<p>Invalid username."; 
                                 }
                                 else if ($_GET["error"] == "usernametaken") {
-                                    echo "<p>De door u ingevoerde username bestaat al. Probeer een andere username.";
+                                    echo "<p>The username already exists.";
                                 }
                                 else if ($_GET["error"] == "passwordsdontmatch") {
-                                    echo "<p>De ingevoerde wachtwoorden komen niet overeen.";
+                                    echo "<p>The passwords do no match.";
                                 }
                                 else if ($_GET["error"] == "stmtfailed") {
-                                    echo "<p>Er is iets fout gegaan, probeer opnieuw!.";
+                                    echo "<p>Something went wrong, Try again!.";
+                                }
+                                else if ($_GET["error"] == "usernametooshort") {
+                                    echo "<p>The username has to be greater than 4 characters long.";
+                                }
+                                else if ($_GET["error"] == "passwordtooshort") {
+                                    echo "<p>The password has to be greater than 4 characters long.";
                                 }
                             }
                         ?>

@@ -24,6 +24,16 @@ if (isset($_POST["submit"])) {
         exit();
     }
     
+    if (usernameTooShort($username, 5) !== false) {
+        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=usernametooshort");
+        exit();
+    }
+    
+    if (passwordTooShort($pswd, 5) !== false) {
+        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=passwordtooshort");
+        exit();
+    }
+    
     createUser($conn, $user, $username, $pswd);
 
 }

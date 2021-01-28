@@ -81,3 +81,21 @@ function loginUser($conn, $username, $pswd) {
     exit();
   
 }
+
+// returns true if the username contains enough characters.
+function usernameTooShort($username, $border) {
+    $result = false;
+    if (strlen($username) < $border) {
+        $result = true;
+    }
+    return $result;
+}
+
+// returns true if the password contains enough characters.
+function passwordTooShort($pswd, $border) {
+    $result = false;
+    if (strlen($pswd) < $border) {
+        $result = true;
+    }
+    return $result;
+}
