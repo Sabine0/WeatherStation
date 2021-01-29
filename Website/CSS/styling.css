@@ -146,3 +146,26 @@ body {
     margin-bottom: 20px;
     margin-top: 10px;
 }
+
+#weatherdata {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+#weatherdata td, #weatherdata th {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+#weatherdata tr:nth-child(even){background-color: #f2f2f2;}
+
+#weatherdata th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}

@@ -4,96 +4,97 @@
 
 <!--Clickable weather stations: data in a table (or graph) as live as possible. (up to 1 week)-->
 <html>
-	<head>
-    <title>Map of the Philippines</title>
-    <link rel="stylesheet" href="CSS/styling.css">
-	</head>
+    <head>
+        <title>Map of the Philippines</title>
+        <link rel="stylesheet" href="CSS/styling.css">
+    </head>
 
-  <body>
-    <div class='map-container-left'>
-      <h2>Weather stations in the Philippines</h2>
-      <p>Click on the desired weather station to show weather data</p>
+        <body>
+            <div class='map-container-left'>
+              <h2>Weather stations in the Philippines</h2>
+              <p>Click on the desired weather station to show weather data</p>
 
-      <img src="map_Philippines.png" alt="mapPhilippines" usemap="#weatherstations" width="1300" height="1400">
+              <img src="map_Philippines.png" alt="mapPhilippines" usemap="#weatherstations" width="1300" height="1400">
 
-      <map name="weatherstations" id="weatherstations"> 
-      <!--pixels from left, pixels from top, pixels from left, pixels from top-->
-        <area shape="rect" coords="590, 50, 610, 70" alt="Basco" href="map.php">
-        <area shape="rect" coords="490, 240, 510, 260" alt="Laoag" href="map.php">
-        <area shape="rect" coords="480, 270, 500, 290" alt="Sinait" href="map.php">
-        <area shape="rect" coords="570, 230, 590, 250" alt="Aparri" href="map.php">
-        <area shape="rect" coords="445, 475, 465, 495" alt="Iba" href="map.php">
-        <area shape="rect" coords="470, 420, 490, 440" alt="Dagupan" href="map.php">
-        <area shape="rect" coords="490, 390, 510, 410" alt="Baguio" href="map.php">
-        <area shape="rect" coords="530, 465, 550, 485" alt="Cabanatuan" href="map.php">
-        <area shape="rect" coords="520, 545, 540, 565" alt="Manila" href="map.php">
-        <area shape="rect" coords="460, 520, 480, 540" alt="Subic Bay" href="map.php">
-        <area shape="rect" coords="525, 530, 545, 550" alt="Science garden" href="map.php">
-        <area shape="rect" coords="535, 640, 555, 660" alt="Calapan" href="map.php">
-        <area shape="rect" coords="525, 735, 545, 755" alt="Ambulong" href="map.php">
-        <area shape="rect" coords="545, 540, 565, 560" alt="Tanay" href="map.php">
-        <area shape="rect" coords="665, 580, 685, 600" alt="Daet" href="map.php">
-        <area shape="rect" coords="725, 660, 745, 680" alt="Legaspi" href="map.php">
-        <area shape="rect" coords="760, 625, 780, 645" alt="Virac" href="map.php">
-        <area shape="rect" coords="775, 615, 795, 635" alt="Catanduanes radar" href="map.php">
-        <area shape="rect" coords="525, 720, 545, 740" alt="San Jose" href="map.php">
-        <area shape="rect" coords="615, 705, 635, 725" alt="Romblon" href="map.php">
-        <area shape="rect" coords="655, 790, 675, 810" alt="Roxas" href="map.php">
-        <area shape="rect" coords="710, 720, 730, 740" alt="Masbate" href="map.php">
-        <area shape="rect" coords="795, 715, 815, 735" alt="Catarman" href="map.php">
-        <area shape="rect" coords="815, 770, 835, 790" alt="Catbalogan" href="map.php">
-        <area shape="rect" coords="850, 795, 870, 815" alt="Borongan" href="map.php">
-        <area shape="rect" coords="820, 810, 840, 830" alt="Tacloban" href="map.php">
-        <area shape="rect" coords="880, 830, 900, 850" alt="Guiuan" href="map.php">
-        <area shape="rect" coords="345, 920, 365, 940" alt="Puerto Princesa" href="map.php">
-        <area shape="rect" coords="640, 860, 660, 880" alt="Iloilo" href="map.php">
-        <area shape="rect" coords="695, 975, 715, 995" alt="Dumaguete" href="map.php">
-        <area shape="rect" coords="740, 945, 760, 965" alt="Tagbilaran" href="map.php">
-        <area shape="rect" coords="740, 890, 760, 910" alt="Lahug" href="map.php">
-        <area shape="rect" coords="740, 905, 760, 925" alt="Mactan" href="map.php">
-        <area shape="rect" coords="860, 930, 880, 950" alt="Surigao" href="map.php">
-        <area shape="rect" coords="785, 1055, 805, 1075" alt="Lumbia Airport" href="map.php">
-        <area shape="rect" coords="795, 1040, 815, 1060" alt="Cagayan de Oro" href="map.php">
-        <area shape="rect" coords="860, 1005, 880, 1025" alt="Butuan" href="map.php">
-        <area shape="rect" coords="870, 1160, 890, 1180" alt="Davao Airport" href="map.php">
-        <area shape="rect" coords="925, 1045, 945, 1065" alt="Hinatuan" href="map.php">
-        <area shape="rect" coords="600, 1165, 620, 1185" alt="Zamboanga" href="map.php">
-        <area shape="rect" coords="" alt="Gen. Santos" href="map.php">
-        <!-- die laaste moet nog im lazy-->
-      </map>
+                <!--NEEDS TO BE CHANGED TO THE CORRECT LOCATIONS AND COORDINATES!!-->
+                <map name="weatherstations" id="weatherstations"> 
+                <!--pixels from left, pixels from top, pixels from left, pixels from top-->
+                    <area shape="rect" coords="590, 50, 610, 70" alt="Basco" href="map.php?weatherstation=Basco">
+                    <area shape="rect" coords="490, 240, 510, 260" alt="Laoag" href="map.php?weatherstation=Laoag">
+                    <area shape="rect" coords="480, 270, 500, 290" alt="Sinait" href="map.php?weatherstation=Sinait">
+                    <area shape="rect" coords="570, 230, 590, 250" alt="Aparri" href="map.php?weatherstation=Aparri">
+                    <area shape="rect" coords="445, 475, 465, 495" alt="Iba" href="map.php?weatherstation=Iba">
+                    <area shape="rect" coords="470, 420, 490, 440" alt="Dagupan" href="map.php?weatherstation=Dagupan">
+                    <area shape="rect" coords="490, 390, 510, 410" alt="Baguio" href="map.php?weatherstation=Baguio">
+                    <area shape="rect" coords="530, 465, 550, 485" alt="Cabanatuan" href="map.php?weatherstation=Cabanatuan">
+                    <area shape="rect" coords="520, 545, 540, 565" alt="Manila" href="map.php?weatherstation=Manila">
+                    <area shape="rect" coords="460, 520, 480, 540" alt="Subic Bay" href="map.php?weatherstation=SubicBay">
+                    <area shape="rect" coords="525, 530, 545, 550" alt="Science garden" href="map.php?weatherstation=Sciencegarden">
+                    <area shape="rect" coords="535, 640, 555, 660" alt="Calapan" href="map.php?weatherstation=Calapan">
+                    <area shape="rect" coords="525, 735, 545, 755" alt="Ambulong" href="map.php?weatherstation=Ambulong">
+                    <area shape="rect" coords="545, 540, 565, 560" alt="Tanay" href="map.php?weatherstation=Tanay">
+                    <area shape="rect" coords="665, 580, 685, 600" alt="Daet" href="map.php?weatherstation=Daet">
+                    <area shape="rect" coords="725, 660, 745, 680" alt="Legaspi" href="map.php?weatherstation=Legaspi">
+                    <area shape="rect" coords="760, 625, 780, 645" alt="Virac" href="map.php?weatherstation=Virac">
+                    <area shape="rect" coords="775, 615, 795, 635" alt="Catanduanes radar" href="map.php?weatherstation=Catanduanesradar">
+                    <area shape="rect" coords="525, 720, 545, 740" alt="San Jose" href="map.php?weatherstation=SanJose">
+                    <area shape="rect" coords="615, 705, 635, 725" alt="Romblon" href="map.php?weatherstation=Romblon">
+                    <area shape="rect" coords="655, 790, 675, 810" alt="Roxas" href="map.php?weatherstation=Roxas">
+                    <area shape="rect" coords="710, 720, 730, 740" alt="Masbate" href="map.php?weatherstation=Masbate">
+                    <area shape="rect" coords="795, 715, 815, 735" alt="Catarman" href="map.php?weatherstation=Catarman">
+                    <area shape="rect" coords="815, 770, 835, 790" alt="Catbalogan" href="map.php?weatherstation=Catbalogan">
+                    <area shape="rect" coords="850, 795, 870, 815" alt="Borongan" href="map.php?weatherstation=Borongan">
+                    <area shape="rect" coords="820, 810, 840, 830" alt="Tacloban" href="map.php?weatherstation=Tacloban">
+                    <area shape="rect" coords="880, 830, 900, 850" alt="Guiuan" href="map.php?weatherstation=Guiuan">
+                    <area shape="rect" coords="345, 920, 365, 940" alt="Puerto Princesa" href="map.php?weatherstation=PuertoPrincesa">
+                    <area shape="rect" coords="640, 860, 660, 880" alt="Iloilo" href="map.php?weatherstation=Iloilo">
+                    <area shape="rect" coords="695, 975, 715, 995" alt="Dumaguete" href="map.php?weatherstation=Dumaguete">
+                    <area shape="rect" coords="740, 945, 760, 965" alt="Tagbilaran" href="map.php?weatherstation=Tagbilaran">
+                    <area shape="rect" coords="740, 890, 760, 910" alt="Lahug" href="map.php?weatherstation=Lahug">
+                    <area shape="rect" coords="740, 905, 760, 925" alt="Mactan" href="map.php?weatherstation=Mactan">
+                    <area shape="rect" coords="860, 930, 880, 950" alt="Surigao" href="map.php?weatherstation=Surigao">
+                    <area shape="rect" coords="785, 1055, 805, 1075" alt="Lumbia Airport" href="map.php?weatherstation=LumbiaAirport">
+                    <area shape="rect" coords="795, 1040, 815, 1060" alt="Cagayan de Oro" href="map.php?weatherstation=CagayandeOro">
+                    <area shape="rect" coords="860, 1005, 880, 1025" alt="Butuan" href="map.php?weatherstation=Butuan">
+                    <area shape="rect" coords="870, 1160, 890, 1180" alt="Davao Airport" href="map.php?weatherstation=DavaoAirport">
+                    <area shape="rect" coords="925, 1045, 945, 1065" alt="Hinatuan" href="map.php?weatherstation=Hinatuan">
+                    <area shape="rect" coords="600, 1165, 620, 1185" alt="Zamboanga" href="map.php?weatherstation=Zamboanga">
+                    <area shape="rect" coords="" alt="Gen. Santos" href="map.php?weatherstation=Gen.Santos">
+                <!-- die laaste moet nog im lazy-->
+              </map>
 
-    </div>
-        
-    <div class='map-container-right'>
-      <h2>Weather data of station:</h2>
-      <p>*Current weather station*</p>
-      </br>
-      <table style="width:100%" border = 1px>
-        <tr>
-          <th>Country code</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Air pressure</th>
-          <th>Air pressure at sea level</th>
-        </tr>
-        <?php
-        $xmldata = simplexml_load_file("WeatherData.xml") or die("Failed to load file");
-            //Static data ATM, in the future use for each loop + look for country by STN instead of $i
-            for($i=0; $i<7; $i++){
-              echo "<tr>";
-              echo "<td> " . $xmldata->MEASUREMENT[$i]->STN . "</td>";
-              echo "<td> " . $xmldata->MEASUREMENT[$i]->DATE . "</td>";
-              echo "<td>" . $xmldata->MEASUREMENT[$i]->TIME . "</td>";
-              echo "<td>" . $xmldata->MEASUREMENT[$i]->STP . "</td>";
-              echo "<td>" . $xmldata->MEASUREMENT[$i]->SLP . "</td>";
-              echo "</tr>";
-            }
-?>
-</table>
-      </br>
-      <button><a href="map.php" download="WeatherData.xml">Download this data!</button>
-    </div>
-  </body>
+        </div>
+
+        <div class='map-container-right'>
+            <h2>Weather data of station:</h2>
+            <p>*Current weather station*</p>
+            </br>
+                <table id="weatherdata">
+                    <tr>
+                      <th>Country code</th>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Air pressure</th>
+                      <th>Air pressure at sea level</th>
+                    </tr>
+                    <?php
+                        $xmldata = simplexml_load_file("WeatherData.xml") or die("Failed to load file");
+                        //Static data ATM, in the future use for each loop + look for country by STN instead of $i
+                        for($i=0; $i<7; $i++){
+                          echo "<tr>";
+                          echo "<td> " . $xmldata->MEASUREMENT[$i]->STN . "</td>";
+                          echo "<td> " . $xmldata->MEASUREMENT[$i]->DATE . "</td>";
+                          echo "<td>" . $xmldata->MEASUREMENT[$i]->TIME . "</td>";
+                          echo "<td>" . $xmldata->MEASUREMENT[$i]->STP . "</td>";
+                          echo "<td>" . $xmldata->MEASUREMENT[$i]->SLP . "</td>";
+                          echo "</tr>";
+                        }
+                    ?>
+                </table>
+                </br>
+                <button><a href="map.php" download="WeatherData.xml">Download this data!</button>
+            </div>
+        </body>
 </html>
 
 <!--
