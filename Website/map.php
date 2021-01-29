@@ -16,7 +16,6 @@
 
       <img src="map_Philippines.png" alt="mapPhilippines" usemap="#weatherstations" width="1300" height="1400">
 
-      <!--NEEDS TO BE CHANGED TO THE CORRECT LOCATIONS AND COORDINATES!!-->
       <map name="weatherstations" id="weatherstations"> 
       <!--pixels from left, pixels from top, pixels from left, pixels from top-->
         <area shape="rect" coords="590, 50, 610, 70" alt="Basco" href="map.php">
@@ -71,54 +70,26 @@
       </br>
       <table style="width:100%" border = 1px>
         <tr>
+          <th>Country code</th>
           <th>Date</th>
+          <th>Time</th>
           <th>Air pressure</th>
           <th>Air pressure at sea level</th>
         </tr>
-        <tr>
-        <!--These are all placeholders-->
-          <td>25-01-21</td>
-          <td>1013.25</td>
-          <td>1013.25</td>
-        </tr>
-        <tr>
-        <!--These are all placeholders-->
-          <td>26-01-21</td>
-          <td>1013.25</td>
-          <td>1013.25</td>
-          </tr>
-        <tr>
-         <!--These are all placeholders-->
-          <td>27-01-21</td>
-          <td>1013.25</td>
-          <td>1013.25</td>
-        </tr>
-        <tr>
-         <!--These are all placeholders-->
-          <td>28-01-21</td>
-          <td>1013.25</td>
-          <td>1013.25</td>
-        </tr>
-        <tr>
-         <!--These are all placeholders-->
-          <td>29-01-21</td>
-          <td>1013.25</td>
-          <td>1013.25</td>
-        </tr>
-        <tr>
-         <!--These are all placeholders-->
-          <td>30-01-21</td>
-          <td>1013.25</td>
-          <td>1013.25</td>
-        </tr>
-        <tr>
-         <!--These are all placeholders-->
-          <td>31-01-21</td>
-          <td>1013.25</td>
-          <td>1013.25</td>
-        </tr>
-
-      </table>
+        <?php
+        $xmldata = simplexml_load_file("WeatherData.xml") or die("Failed to load file");
+            //Static data ATM, in the future use for each loop + look for country by STN instead of $i
+            for($i=0; $i<7; $i++){
+              echo "<tr>";
+              echo "<td> " . $xmldata->MEASUREMENT[$i]->STN . "</td>";
+              echo "<td> " . $xmldata->MEASUREMENT[$i]->DATE . "</td>";
+              echo "<td>" . $xmldata->MEASUREMENT[$i]->TIME . "</td>";
+              echo "<td>" . $xmldata->MEASUREMENT[$i]->STP . "</td>";
+              echo "<td>" . $xmldata->MEASUREMENT[$i]->SLP . "</td>";
+              echo "</tr>";
+            }
+?>
+</table>
       </br>
       <button><a href="map.php" download="WeatherData.xml">Download this data!</button>
     </div>
