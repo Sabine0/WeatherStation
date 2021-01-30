@@ -94,19 +94,17 @@
                     $max = 7;
                     
                     // iterate through xml file
-                    foreach($xmldata->WEATHERDATA as $WEATHERDATA){
-                        foreach($WEATHERDATA->MEASUREMENT as $item){
-                            if ($item->STN == $currentSTN) {
-                                if ($count < $max) {
-                                    echo "<tr>";
-                                        echo "<td> " . (string)$item->STN;
-                                        echo "<td> " . (string)$item->DATE;
-                                        echo "<td> " . (string)$item->TIME;
-                                        echo "<td> " . (string)$item->STP;
-                                        echo "<td> " . (string)$item->SLP;
-                                    echo "</tr>";
-                                    $count++;
-                                }
+                    foreach($xmldata->MEASUREMENT as $item) {
+                        if ($item->STN == $currentSTN) {
+                            if ($count < $max) {
+                                echo "<tr>";
+                                    echo "<td> " . (string)$item->STN;
+                                    echo "<td> " . (string)$item->DATE;
+                                    echo "<td> " . (string)$item->TIME;
+                                    echo "<td> " . (string)$item->STP;
+                                    echo "<td> " . (string)$item->SLP;
+                                echo "</tr>";
+                                $count++;
                             }
                         }
                     }
