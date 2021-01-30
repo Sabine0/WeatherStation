@@ -25,8 +25,9 @@ public class ServerV1_0 {
                 System.out.println("Client connected");
                 DataInputStream dis = new DataInputStream(s.getInputStream());
                 String str = (String) dis.readUTF();
-                Path file = Paths.get("WeatherData.xml");
-                Files.write(file, Collections.singleton(str));
+                File file = new File("WeatherData.xml"); //creates weatherdata file
+                FileWriter fr = new FileWriter(file, true); // makes new filewriter
+                fr.write(str); // writes to file
                 System.out.println("message= " + str);
                 // ss.close();
             }
