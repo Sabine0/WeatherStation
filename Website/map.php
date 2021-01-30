@@ -7,6 +7,7 @@
     <head>
         <title>Map of the Philippines</title>
         <link rel="stylesheet" href="CSS/styling.css">
+        <meta http-equiv="refresh" content="30">
     </head>
 
     <body>
