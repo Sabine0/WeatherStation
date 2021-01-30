@@ -50,7 +50,9 @@ Downloadable data in XML format-->
 </table>
 
 </br>
+<?php if(!empty($_SESSION['username'])){ ?>
 <button><a href="table_data_humidity_asia.php" download="WeatherData.xml">Download this data!</button>
+<?php } ?>
 <!--Removed the back button, the university logo will be used to go back to home in the future-->
 </body>
 </html>

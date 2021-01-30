@@ -89,7 +89,9 @@
                 ?>
             </table>
             </br>
-            <button><a href="map.php" download="WeatherData.xml">Download this data!</button>
+            <?php if(!empty($_SESSION['username'])){ ?>
+                <button><a href="map.php" download="WeatherData.xml">Download this data!</button>
+            <?php } ?>
         </div>
     </body>
 </html>
