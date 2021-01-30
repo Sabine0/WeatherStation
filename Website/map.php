@@ -64,11 +64,13 @@
         
         <?php  
             if (isset($_GET["weatherstation"])) { 
+            $weatherstation = str_replace("+", " ", $_GET["weatherstation"]);
         ?>
         
         <div class='map-container-right'>
             <h2>Weather data of station:</h2>
-            <p>*Current weather station*</p>
+            
+            <p><?php echo $weatherstation; ?></p>
             </br>
             <table id="weatherdata">
                 <tr>
@@ -80,20 +82,11 @@
                 </tr>
                 
                 <?php  
-                if (isset($_GET["weatherstation"])) {
-    
-                    $weatherstation = str_replace("+", " ", $_GET["weatherstation"]);
-                    echo $weatherstation;
-
                     require_once 'dbcon_unwdmi.php';
                     require_once 'functions.php';
-                    
-                    // Testing if we get the code that belongs to the weatherstation.
-                    echo '</br>';
-                    $currentSTN = implode(" ", getStationCode($conn, $user, $weatherstation));
-                    echo $currentSTN;
-                    
-                }
+                   
+                    $currentSTN = implode(" ", getStationCode($conn, $user, $weatherstation));       
+                
                     $xmldata = simplexml_load_file("WeatherData.xml") or die("Failed to load file");
                     // Variable that counts how many times data is printed
                     $count = 0;
@@ -135,12 +128,11 @@
             
             <!--Data is only downloadable if user is logged in-->
             <?php if(!empty($_SESSION['username'])){ ?>
-            <button><a href="map.php" download="WeatherData.xml">Download this data!</a></button>
+                <button><a href="map.php" download="WeatherData.xml">Download this data!</a></button>
             <?php } 
                 }
             ?>
             
-           
         </div>
     </body>
 </html>

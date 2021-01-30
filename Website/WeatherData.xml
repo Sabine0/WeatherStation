@@ -361,7 +361,39 @@
                     <TIME>16:04:04</TIME>
                     <TEMP>-32.6</TEMP>
                     <DEWP>-34.7</DEWP>
-                    <STP>1048.5</STP>
+                    <STP>1043.5</STP>
+                    <SLP>1043.0</SLP>
+                    <VISIB>13.8</VISIB>
+                    <WDSP>9.3</WDSP>
+                    <PRCP>0.03</PRCP>
+                    <SNDP>0.0</SNDP>
+                    <FRSHTT>110000</FRSHTT>
+                    <CLDC>50.1</CLDC>
+                    <WNDDIR>86</WNDDIR>
+            </MEASUREMENT>
+            <MEASUREMENT>
+                    <STN>981350</STN>
+                    <DATE>2021-01-27</DATE>
+                    <TIME>16:04:04</TIME>
+                    <TEMP>-32.6</TEMP>
+                    <DEWP>-34.7</DEWP>
+                    <STP>1058.5</STP>
+                    <SLP>1013.0</SLP>
+                    <VISIB>13.8</VISIB>
+                    <WDSP>9.3</WDSP>
+                    <PRCP>0.03</PRCP>
+                    <SNDP>0.0</SNDP>
+                    <FRSHTT>110000</FRSHTT>
+                    <CLDC>50.1</CLDC>
+                    <WNDDIR>86</WNDDIR>
+            </MEASUREMENT>
+            <MEASUREMENT>
+                    <STN>981350</STN>
+                    <DATE>2021-01-27</DATE>
+                    <TIME>16:04:04</TIME>
+                    <TEMP>-32.6</TEMP>
+                    <DEWP>-34.7</DEWP>
+                    <STP>1088.5</STP>
                     <SLP>1033.0</SLP>
                     <VISIB>13.8</VISIB>
                     <WDSP>9.3</WDSP>
@@ -377,8 +409,8 @@
                     <TIME>16:04:04</TIME>
                     <TEMP>-32.6</TEMP>
                     <DEWP>-34.7</DEWP>
-                    <STP>1048.5</STP>
-                    <SLP>1033.0</SLP>
+                    <STP>1043.5</STP>
+                    <SLP>1070.0</SLP>
                     <VISIB>13.8</VISIB>
                     <WDSP>9.3</WDSP>
                     <PRCP>0.03</PRCP>
@@ -393,40 +425,8 @@
                     <TIME>16:04:04</TIME>
                     <TEMP>-32.6</TEMP>
                     <DEWP>-34.7</DEWP>
-                    <STP>1048.5</STP>
-                    <SLP>1033.0</SLP>
-                    <VISIB>13.8</VISIB>
-                    <WDSP>9.3</WDSP>
-                    <PRCP>0.03</PRCP>
-                    <SNDP>0.0</SNDP>
-                    <FRSHTT>110000</FRSHTT>
-                    <CLDC>50.1</CLDC>
-                    <WNDDIR>86</WNDDIR>
-            </MEASUREMENT>
-            <MEASUREMENT>
-                    <STN>981350</STN>
-                    <DATE>2021-01-27</DATE>
-                    <TIME>16:04:04</TIME>
-                    <TEMP>-32.6</TEMP>
-                    <DEWP>-34.7</DEWP>
-                    <STP>1048.5</STP>
-                    <SLP>1033.0</SLP>
-                    <VISIB>13.8</VISIB>
-                    <WDSP>9.3</WDSP>
-                    <PRCP>0.03</PRCP>
-                    <SNDP>0.0</SNDP>
-                    <FRSHTT>110000</FRSHTT>
-                    <CLDC>50.1</CLDC>
-                    <WNDDIR>86</WNDDIR>
-            </MEASUREMENT>
-            <MEASUREMENT>
-                    <STN>981350</STN>
-                    <DATE>2021-01-27</DATE>
-                    <TIME>16:04:04</TIME>
-                    <TEMP>-32.6</TEMP>
-                    <DEWP>-34.7</DEWP>
-                    <STP>1048.5</STP>
-                    <SLP>1033.0</SLP>
+                    <STP>1090.5</STP>
+                    <SLP>999.0</SLP>
                     <VISIB>13.8</VISIB>
                     <WDSP>9.3</WDSP>
                     <PRCP>0.03</PRCP>
