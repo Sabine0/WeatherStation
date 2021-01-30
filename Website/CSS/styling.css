@@ -150,6 +150,8 @@ body {
 
 #weatherdata tr:nth-child(even){background-color: #f2f2f2;}
 
+#weatherdata tr:nth-child(odd){background-color: white;}
+
 #weatherdata th {
   padding-top: 12px;
   padding-bottom: 12px;
