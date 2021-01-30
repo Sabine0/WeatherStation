@@ -9,6 +9,7 @@ Downloadable data in XML format-->
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="CSS/styling.css">
 	<title>Humidity in Asia</title>
 	<h1> Humidity of top 10 weather stations in Asia with an average temperature between 27 and 29.5 degrees Celcius.</h1>
 </head>
