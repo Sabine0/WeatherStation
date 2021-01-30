@@ -6,7 +6,7 @@ if (isset($_POST["submit"])) {
     $pswd = $_POST["pswd"];
     $pswdRepeat = $_POST["pswdRepeat"];
 
-    require_once 'dbcon.php';
+    require_once 'dbcon_weatherstation.php';
     require_once 'functions.php';
 
     if (invalidUsername($username) !== false) {

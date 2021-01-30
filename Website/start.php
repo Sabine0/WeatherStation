@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="CSS/styling.css">
     </head>
         <body>
-            <div class="bg-image"></div>
             <div class="start-background">
                 <div class="img-box">
                     <img src="afbeeldingen/logoWithText.png">
