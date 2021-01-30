@@ -12,7 +12,7 @@
     <body>
         <div class='map-container-left'>
             <h2>Weather stations in the Philippines</h2>
-            <p>Click on the desired weather station to show weather data</p>
+            <p>Click on the desired weather station to show air pressure</p>
 
             <img src="map_Philippines.png" alt="mapPhilippines" usemap="#weatherstations" width="1300" height="1400">
 
