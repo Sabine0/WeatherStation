@@ -172,3 +172,21 @@ function getWeatherstation($conn, $user, $stn) {
     }
     mysqli_stmt_close($stmt); 
 }
+
+// function to convert array to xml
+function array_to_xml($measurements) {
+    $xml_data = new SimpleXMLElement('<?xml version="1.0"?><MEASUREMENTS></MEASUREMENTS>'); 
+    foreach($measurements as $row) {
+        $measurementNode = $xml_data->addChild('MEASUREMENT');
+        foreach($row as $key => $value ) {
+            
+            if( is_array($value) ) {
+                $subnode = $measurementNode->addChild($key);
+                array_to_xml($value, $subnode);
+            } else {
+                $measurementNode->addChild("$key",htmlspecialchars("$value"));
+            }
+        }
+    }
+    $result = $xml_data->asXML('Measurements_Air_Pressure_Philippines.xml');
+}

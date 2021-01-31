@@ -94,10 +94,16 @@
                     // Max of $count;
                     $max = 7;
                     
+                    $measurements = array();
                     // iterate through xml file
                     foreach($xmldata->MEASUREMENT as $item) {
                         if ($item->STN == $currentSTN) {
                             if ($count < $max) {
+                                $measurements[$count]['DATE'] = (string)$item->DATE;
+                                $measurements[$count]['TIME'] = (string)$item->TIME;
+                                $measurements[$count]['STP'] = (string)$item->STP;
+                                $measurements[$count]['SLP'] = (string)$item->SLP;
+                                        
                                 echo "<tr>";
                                     echo "<td> " . (string)$item->STN . "</td>";
                                     echo "<td> " . (string)$item->DATE . "</td>";
@@ -109,15 +115,20 @@
                             }
                         }
                     }
+                    array_to_xml($measurements);
+                    
+                    // is true if no row is printed in the table
+                    $tableEmpty = false;
                     // If no data was found of the station
                     // Print 1 row 
                     if ($count == 0){
+                        $tableEmpty = true;
                         echo "<tr>";
-                            echo "<td> " . "No data found";
-                            echo "<td> " . "x";
-                            echo "<td> " . "x";
-                            echo "<td> " . "x";
-                            echo "<td> " . "x";
+                            echo "<td> " . "No data found" . "</td>";
+                            echo "<td> " . "x" . "</td>"; 
+                            echo "<td> " . "x" . "</td>";
+                            echo "<td> " . "x" . "</td>";
+                            echo "<td> " . "x" . "</td>";
                         echo "</tr>";
                     }
                 ?>
@@ -125,9 +136,9 @@
             </table>
             </br>
             
-            <!--Data is only downloadable if user is logged in-->
-            <?php if(!empty($_SESSION['username'])){ ?>
-                <button><a href="map.php" download="WeatherData.xml">Download this data!</a></button>
+            <!--Data is only downloadable if user is logged in and table has atleast 1 row printed of values-->
+            <?php if(!empty($_SESSION['username']) and !$tableEmpty){ ?>
+            <button><a href="measurements.xml" download="measurements.xml">Download this data!</a></button>
             <?php } 
                 }
             ?>
