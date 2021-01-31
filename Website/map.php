@@ -15,7 +15,7 @@
             <h2>Weather stations in the Philippines</h2>
             <p>Click on the desired weather station to show air pressure</p>
 
-            <img src="map_Philippines.png" alt="mapPhilippines" usemap="#weatherstations" width="1300" height="1400">
+            <img src="afbeeldingen/map.jpg" alt="mapPhilippines" usemap="#weatherstations" width="1300" height="1400">
 
             <map name="weatherstations" id="weatherstations"> 
                 <!--pixels from left, pixels from top, pixels from left, pixels from top-->
