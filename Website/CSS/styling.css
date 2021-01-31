@@ -173,3 +173,9 @@ body {
     background-color: rgba(0, 0, 0, 0.85);
     border-radius: 3px;  
 }
+
+.container-humidity-asia {
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+}

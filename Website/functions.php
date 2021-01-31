@@ -149,3 +149,26 @@ function getStationCountry($conn, $user, $stationCode) {
 
     mysqli_stmt_close($stmt); 
 }
+
+function getWeatherstation($conn, $user, $stn) {
+    $sql = "SELECT name FROM stations WHERE stn = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: http://localhost/WeatherStation/Website/map.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $stn);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+
+    }
+    else {
+        $result = false;
+        return $result;
+    }
+    mysqli_stmt_close($stmt); 
+}
