@@ -99,11 +99,11 @@
                         if ($item->STN == $currentSTN) {
                             if ($count < $max) {
                                 echo "<tr>";
-                                    echo "<td> " . (string)$item->STN;
-                                    echo "<td> " . (string)$item->DATE;
-                                    echo "<td> " . (string)$item->TIME;
-                                    echo "<td> " . (string)$item->STP;
-                                    echo "<td> " . (string)$item->SLP;
+                                    echo "<td> " . (string)$item->STN . "</td>";
+                                    echo "<td> " . (string)$item->DATE . "</td>";
+                                    echo "<td> " . (string)$item->TIME . "</td>";
+                                    echo "<td> " . (string)$item->STP . "</td>";
+                                    echo "<td> " . (string)$item->SLP . "</td>";
                                 echo "</tr>";
                                 $count++;
                             }
