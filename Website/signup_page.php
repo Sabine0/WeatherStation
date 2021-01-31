@@ -60,6 +60,9 @@
                                 else if ($_GET["error"] == "passwordtooshort") {
                                     echo "<p>The password has to be greater than 4 characters long.";
                                 }
+                                else if ($_GET["error"] == "toomanyusers") {
+                                    echo "<p>Sorry, there is no room for any more user accounts.";
+                                }
                             }
                         ?>
                             </div>

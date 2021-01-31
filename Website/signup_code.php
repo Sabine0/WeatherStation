@@ -34,6 +34,11 @@ if (isset($_POST["submit"])) {
         exit();
     }
     
+    if (tooManyUsers($dbcon_weatherstation, 25) !== false) {
+        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=toomanyusers");
+        exit();
+    }
+    
     createUser($conn, $user, $username, $pswd);
 
 }

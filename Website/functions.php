@@ -100,6 +100,21 @@ function passwordTooShort($pswd, $border) {
     return $result;
 }
 
+
+// returns true if there are too many users in the data base
+function tooManyUsers($dbcon_weatherstation, $max_users) {
+    $sql = "SELECT * FROM users";
+    $result = mysqli_query($dbcon_weatherstation, $sql);
+    $rows = mysqli_num_rows($result);
+    
+    if (!$rows >= $max_users) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 // returns code of current weatherstation
 function getStationCode($conn, $user, $weatherstation) {
     $sql = "SELECT stn FROM stations WHERE name = ?;";
