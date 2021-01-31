@@ -38,7 +38,33 @@ Downloadable data in XML format-->
                         $xmldata = simplexml_load_file("WeatherData.xml") or die("Failed to load file");
 
                         //All countries in Asia
-                        $asia = array('Armenia','Azerbaijan','Bahrain','Bangladesh','Bhutan','Brunei', 'Cambodia','China','Cyprus','Georgia','India','Indonesia','Iran','Iraq','Israel', 'Japan','Jordan','Kazakhstan','Kuwait','Kyrgyzstan','Laos','Lebanon','Malaysia','Maldives','Mongolia','Myanmar','Nepal','North Korea','Oman','Pakistan','Palestine','Philippines','Qatar','Russia','Saudi Arabia','Singapore','South Korea','Sri Lanka','Syria','Taiwan','Tajikistan','Thailand','Timor Leste','Turkey','Turkmenistan','United Arab Emirates','Uzbekistan','Vietnam','Yemen');
+                        $asia = array('ARMENIA','AZERBAIJAN','BAHRAIN','BANGLADESH','BHUTAN','BRUNEI', 'COMBODIA','CHINA','CYPRUS','GEORGIA','INDIA','INDONESIA','IRAN','IRAQ','ISREAL', 'JAPAN','JORDAN','KAZAKHSTAN','KUWAIT','KRYGZSTAN','LAOS','LEBANON','MALAYSIA','MALDIVES','MONGOLIA','MYANMAR','NEPAL','NORTH KOREA','OMAN','PAKISTAN','PALESTINE','PHILIPPINES','QATAR','RUSSIA','SAUDI ARABIA','SINGAPORE','SOUTH KOREA','SRI LANKA','SYRIA','TAIWAN','TAJIKISTAN','THAILAND','TIMOR LESTE','TURKEY','TURKMENISTAN','UNITED ARAB EMIRATES','UZBEKISTAN','VIETNAM','YEMEN');
+
+                        //To be continued?
+						// foreach($xmldata->MEASUREMENT as $item){	
+							//Get the station code
+                            // $stationCode = (string)$item->STN;
+                            
+                            //Find country matching the station code
+                            // $stationCountry = getStationCountry($conn, $user, $stationCode)['country'];
+
+                            //Only process data if country is in Asia
+							// if(in_array($stationCountry, $asia)){
+								// print_r($item);
+
+
+								//array: $asiaStations = STN => array(DATE => array(temperatures))
+
+								// if $stationCode is in $asiaStations:
+									// does current_date exist in dateArray?
+										//yes: add temperature to temperatureArray where key=current_date
+										//no: add current_date to current_STN and add current_temperature to temperature array
+									//else: add $stationCode to $asiaStation
+
+							// }
+						// }
+
+
 
                         //Iterate through XML
                         foreach ($xmldata->MEASUREMENT as $item){
@@ -47,12 +73,11 @@ Downloadable data in XML format-->
                             //echo $stationCode . " ";
                             
                             //Find country matching the station code
-                            $stationCountry = strtolower(getStationCountry($conn, $user, $stationCode)['country']);
+                            $stationCountry = getStationCountry($conn, $user, $stationCode)['country'];
                             //echo $stationCountry . ", ";
-                            $stationCountry = ucfirst($stationCountry); //This is scuffed and needs a workaround but works for now :(
-                            //echo $stationCountry . " ";
 
-                            if(in_array($stationCountry, $asia)){                            
+                            if(in_array($stationCountry, $asia)){
+
                             //Get name of current weatherstation
                             $currentWeatherstation = implode(" ", getWeatherstation($conn, $user, $stationCode));                         
                             $currentWeatherstation = ucfirst(strtolower($currentWeatherstation));
