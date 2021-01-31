@@ -7,8 +7,9 @@ Downloadable data in XML format-->
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="CSS/styling.css">
         <title>Humidity in Asia</title>
+        <link rel="stylesheet" href="CSS/styling.css">
+        <meta http-equiv="refresh" content="30">
         <style>
             table {
               margin: 0 auto; 
