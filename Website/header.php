@@ -17,9 +17,7 @@
                         <h1><span>University</span> of the Philippines</h1>
                     </div>
                 </a>
-                <ul class ="navigation">
-                    <a href="start.php"><li>About us</li></a>
-                    
+                <ul class ="navigation">          
                     <!--When user is not logged in, show login in header-->
                     <?php if(empty($_SESSION['username'])){; ?>
                         <a href="login_page.php"><li>Login</li></a>
