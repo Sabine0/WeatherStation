@@ -6,7 +6,7 @@
 -- Gegenereerd op: 26 jan 2021 om 03:23
 -- Serverversie: 10.4.17-MariaDB
 -- PHP-versie: 7.4.14
-CREATE Database weatherstation;
+USE weatherstation;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";

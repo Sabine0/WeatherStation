@@ -2,7 +2,7 @@
 
 $host="localhost";
 $user="root";
-$password="";
+$password="GroteSlangen456";
 $db="WeatherStation";
 
 $conn=mysqli_connect($host,$user,$password,$db);
