@@ -92,13 +92,13 @@
                     // Variable that counts how many times data is printed
                     $count = 0;
                     // Max of $count;
-                    $max = 7;
+                    $maxRows = 7;
                     
                     $measurements = array();
                     // iterate through xml file
                     foreach($xmldata->MEASUREMENT as $item) {
                         if ($item->STN == $currentSTN) {
-                            if ($count < $max) {
+                            if ($count < $maxRows) {
                                 $measurements[$count]['DATE'] = (string)$item->DATE;
                                 $measurements[$count]['TIME'] = (string)$item->TIME;
                                 $measurements[$count]['STP'] = (string)$item->STP;
@@ -114,7 +114,33 @@
                                 $count++;
                             }
                         }
-                    }
+                    } 
+                    
+                    // print all data of the last 7 days of this weatherstation
+                    // generate code that we can use to print the date of last week
+//                    $lastWeekCode=strtotime("last week");
+//                    // date of today
+//                    $dateLastWeek = date("Y-m-d", $lastWeekCode);
+//                    echo $dateLastWeek;
+//                    foreach($xmldata->MEASUREMENT as $item) {
+//                        if ($item->STN == $currentSTN) {
+//                            if ($dateLastWeek <= $item->DATE) {
+//                                $measurements[$count]['DATE'] = (string)$item->DATE;
+//                                $measurements[$count]['TIME'] = (string)$item->TIME;
+//                                $measurements[$count]['STP'] = (string)$item->STP;
+//                                $measurements[$count]['SLP'] = (string)$item->SLP;
+//                                        
+//                                echo "<tr>";
+//                                    echo "<td> " . (string)$item->STN . "</td>";
+//                                    echo "<td> " . (string)$item->DATE . "</td>";
+//                                    echo "<td> " . (string)$item->TIME . "</td>";
+//                                    echo "<td> " . (string)$item->STP . "</td>";
+//                                    echo "<td> " . (string)$item->SLP . "</td>";
+//                                echo "</tr>";
+//                            }
+//                        }
+//                    }   
+                    
                     array_to_xml($measurements);
                     
                     // is true if no row is printed in the table
