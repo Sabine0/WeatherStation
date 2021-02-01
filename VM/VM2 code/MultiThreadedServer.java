@@ -12,7 +12,9 @@ import java.util.concurrent.Executors;
 
 /**
  * Deze klasse luistert naar een poort en als er een client is gaat die de request in een
- * aparte Thread behandelen.
+ * aparte Thread behandelen. Om chache invalidation te vorkomen maakt de klasse gebruikt van een
+ * volatile list. Omdat meerdere thread veranderingen aanbrigen aan de list wordt deze list
+ * gesynchroniseerd. Zo wordt de list thread-safe gemaakt.
  * versie 1.2
  */
 
@@ -20,9 +22,11 @@ public class MultiThreadedServer{
 
     public static volatile List<String> xmlData = Collections.synchronizedList(new ArrayList<String>());
 
+
     public static void main(String[] args) {
 
         ExecutorService executor = Executors.newFixedThreadPool(800);
+
 
         ServerSocket ss;
         try {
@@ -31,24 +35,22 @@ public class MultiThreadedServer{
             ss = new ServerSocket(7789);
             System.out.println("server is waiting for client request");
 
+            // parser thread
+            Thread parser = new Thread(new Parser());
+            //parser.setPriority(10);
+            parser.start();
+
+
             while (true) {
                 try {
 
-                    // listening on the port
-                    Socket s = ss.accept();// establishes connection
+                    // establishes connection
+                    Socket s = ss.accept();
 
-                    //Ctreating a thread
-                    Thread t = new Thread(new Handler(s));
-                    t.start();
-                    //executor.execute(new Handler(s));
+                    executor.execute(new Handler(s));
 
-                    // parser thread
-                    Thread parser = new Thread(new Parser());
-                    //parser.setPriority(10);
-                    parser.start();
-                    //Parser parser= new Parser();
-                    //parser.run();
-                    System.out.println(xmlData.size());
+
+                    //System.out.println(xmlData.size());
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -57,4 +59,5 @@ public class MultiThreadedServer{
             System.out.println(e);
         }
     }
+
 }
