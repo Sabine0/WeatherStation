@@ -74,8 +74,8 @@
             <p><?php echo $weatherstation; ?></p>
             </br>
             <table id="weatherdata">
+                <h2>Most recent</h2>
                 <tr>
-                    <th>Country code</th>
                     <th>Date</th>
                     <th>Time</th>
                     <th>Air pressure</th>
@@ -85,89 +85,186 @@
                 <?php  
                     require_once 'dbcon_unwdmi.php';
                     require_once 'functions.php';
-                   
+                    // get current STN
                     $currentSTN = implode(" ", getStationCode($conn, $user, $weatherstation));       
-                
+                    // load file in variable
                     $xmldata = simplexml_load_file("WeatherData.xml") or die("Failed to load file");
+                    // Variable that counts every loop for measurements array
+                    $i = 0;
                     // Variable that counts how many times data is printed
-                    $count = 0;
-                    // Max of $count;
-                    $maxRows = 7;
-                    
+                    $countRowsMostRecent = 0;
+                    // Max rows in table;
+                    $maxRows = 10;
+                    // all measures ar in this array
                     $measurements = array();
-                    // iterate through xml file
+                    // array of live data in table for download
+                    $mostRecentData = array(); 
+                    // generate code that we can use to print the date of last week
+                    $lastWeekCode=strtotime("last week");
+                    // date of today
+                    $dateLastWeek = date("Y-m-d", $lastWeekCode);
+                    
+                    // put all data from the last week in $measurements 
                     foreach($xmldata->MEASUREMENT as $item) {
                         if ($item->STN == $currentSTN) {
-                            if ($count < $maxRows) {
-                                $measurements[$count]['DATE'] = (string)$item->DATE;
-                                $measurements[$count]['TIME'] = (string)$item->TIME;
-                                $measurements[$count]['STP'] = (string)$item->STP;
-                                $measurements[$count]['SLP'] = (string)$item->SLP;
-                                        
-                                echo "<tr>";
-                                    echo "<td> " . (string)$item->STN . "</td>";
-                                    echo "<td> " . (string)$item->DATE . "</td>";
-                                    echo "<td> " . (string)$item->TIME . "</td>";
-                                    echo "<td> " . (string)$item->STP . "</td>";
-                                    echo "<td> " . (string)$item->SLP . "</td>";
-                                echo "</tr>";
-                                $count++;
+                            if ($dateLastWeek <= $item->DATE) {
+                                $measurements[$i]['DATE'] = (string)$item->DATE;
+                                $measurements[$i]['TIME'] = (string)$item->TIME;
+                                $measurements[$i]['STP'] = (string)$item->STP;
+                                $measurements[$i]['SLP'] = (string)$item->SLP;
+
+                                $i++;
                             }
                         }
-                    } 
+                    }                     
                     
-                    // print all data of the last 7 days of this weatherstation
-                    // generate code that we can use to print the date of last week
-//                    $lastWeekCode=strtotime("last week");
-//                    // date of today
-//                    $dateLastWeek = date("Y-m-d", $lastWeekCode);
-//                    echo $dateLastWeek;
-//                    foreach($xmldata->MEASUREMENT as $item) {
-//                        if ($item->STN == $currentSTN) {
-//                            if ($dateLastWeek <= $item->DATE) {
-//                                $measurements[$count]['DATE'] = (string)$item->DATE;
-//                                $measurements[$count]['TIME'] = (string)$item->TIME;
-//                                $measurements[$count]['STP'] = (string)$item->STP;
-//                                $measurements[$count]['SLP'] = (string)$item->SLP;
-//                                        
-//                                echo "<tr>";
-//                                    echo "<td> " . (string)$item->STN . "</td>";
-//                                    echo "<td> " . (string)$item->DATE . "</td>";
-//                                    echo "<td> " . (string)$item->TIME . "</td>";
-//                                    echo "<td> " . (string)$item->STP . "</td>";
-//                                    echo "<td> " . (string)$item->SLP . "</td>";
-//                                echo "</tr>";
-//                            }
-//                        }
-//                    }   
+                    // reverse array so that we can read the most recent values first
+                    $reversedMeasurements = array_reverse($measurements, true);
                     
-                    array_to_xml($measurements);
+                    // print rows of table Most Recent
+                    foreach($reversedMeasurements as $row) { 
+                        // only print if there are less rows printed than maxRows
+                        if ($countRowsMostRecent < $maxRows) {
+                            echo "<tr>";
+                                echo "<td> " . $row['DATE'] . "</td>";
+                                echo "<td> " . $row['TIME'] . "</td>";
+                                echo "<td> " . $row['STP'] . " mbar" . "</td>";
+                                echo "<td> " . $row['SLP'] . " mbar" . "</td>";
+                            echo "</tr>";
+
+                            // put the data in array so that the use can download the displayed data
+                            $mostRecentData[$countRowsMostRecent]['DATE'] = $row['DATE'];
+                            $mostRecentData[$countRowsMostRecent]['TIME'] = $row['TIME'];
+                            $mostRecentData[$countRowsMostRecent]['STP'] = $row['STP'];
+                            $mostRecentData[$countRowsMostRecent]['SLP'] = $row['SLP'];
+
+                            $countRowsMostRecent++;
+                        }
+                    }
+                    
+                    // transform mostRecentData array to an XML file
+                    array_to_xml_most_recent_data($mostRecentData);
                     
                     // is true if no row is printed in the table
-                    $tableEmpty = false;
+                    $tableMostRecentEmpty = false;
                     // If no data was found of the station
                     // Print 1 row 
-                    if ($count == 0){
-                        $tableEmpty = true;
+                    if ($countRowsMostRecent == 0){
+                        $tableMostRecentEmpty = true;
                         echo "<tr>";
                             echo "<td> " . "No data found" . "</td>";
-                            echo "<td> " . "x" . "</td>"; 
-                            echo "<td> " . "x" . "</td>";
-                            echo "<td> " . "x" . "</td>";
-                            echo "<td> " . "x" . "</td>";
+                            echo "<td> " . "-" . "</td>"; 
+                            echo "<td> " . "-" . "</td>";
+                            echo "<td> " . "-" . "</td>";
                         echo "</tr>";
                     }
                 ?>
   
             </table>
-            </br>
             
             <!--Data is only downloadable if user is logged in and table has atleast 1 row printed of values-->
-            <?php if(!empty($_SESSION['username']) and !$tableEmpty){ ?>
-            <button><a href="measurements.xml" download="measurements.xml">Download this data!</a></button>
-            <?php } 
-                }
-            ?>
+            <?php if(!empty($_SESSION['username']) and !$tableMostRecentEmpty){ ?> </br>
+                <button><a href="measurements.xml" download="measurements.xml">Download this data!</a></button> 
+            <?php } ?>
+            
+            <!--PRINT TABLE Last 7 days-->
+            </br>
+            <table id="weatherdata">
+                </br>
+                <h2> Last 7 days </h2>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Air pressure</th>
+                    <th>Air pressure at sea level</th>
+                </tr>
+                <?php
+                    // count rows of tabe Last 7 days
+                    $countRowsLastWeek = 0;
+                    // array of data from last 7 days in table for download
+                    $dataLastWeek = array();
+                    // is true if no row is printed in the table
+                    $tableLastWeekEmpty = false;
+                  $dataPerDay = array();
+                    
+                    
+                    
+                    for ($i=0; $i < 7; $i++) {
+                        $date = date("Y-m-d", strtotime("-" . $i . " days"));
+                        $dataPerDay[$i] = 'Empty';
+                        
+                        foreach ($reversedMeasurements as $row) {
+                            if ($row['DATE'] == $date) {                               
+                                    echo "<tr>";
+                                        echo "<td> " . $row['DATE'] . "</td>";
+                                        echo "<td> " . $row['TIME'] . "</td>";
+                                        echo "<td> " . $row['STP'] . " mbar" . "</td>";
+                                        echo "<td> " . $row['SLP'] . " mbar" . "</td>";
+                                    echo "</tr>";
+
+                                    // put the data in array so that the use can download the displayed data
+                                    $dataLastWeek[$countRowsLastWeek]['DATE'] = $row['DATE'];
+                                    $dataLastWeek[$countRowsLastWeek]['TIME'] = $row['TIME'];
+                                    $dataLastWeek[$countRowsLastWeek]['STP'] = $row['STP'];
+                                    $dataLastWeek[$countRowsLastWeek]['SLP'] = $row['SLP'];
+                                    
+                                    $dataPerDay[$i] = $row['STP'];
+                                    
+                            }
+                        }
+                    }
+                    
+                    //print_r($dataPerDay);
+                
+                
+
+
+                    // print rows of table Last 7 days
+//                    foreach($reversedMeasurements as $row) { 
+//                        // only print if there are less rows printed than maxRows
+//                        if ($countRowsLastWeek < $maxRows) {
+//                            echo "<tr>";
+//                                echo "<td> " . $row['DATE'] . "</td>";
+//                                echo "<td> " . $row['TIME'] . "</td>";
+//                                echo "<td> " . $row['STP'] . " mbar" . "</td>";
+//                                echo "<td> " . $row['SLP'] . " mbar" . "</td>";
+//                            echo "</tr>";
+//
+//                            // put the data in array so that the use can download the displayed data
+//                            $dataLastWeek[$countRowsLastWeek]['DATE'] = $row['DATE'];
+//                            $dataLastWeek[$countRowsLastWeek]['TIME'] = $row['TIME'];
+//                            $dataLastWeek[$countRowsLastWeek]['STP'] = $row['STP'];
+//                            $dataLastWeek[$countRowsLastWeek]['SLP'] = $row['SLP'];
+//
+//                            $countRowsLastWeek++;
+//                        }
+//                    }
+
+                    // transform mostRecentData array to an XML file
+                    array_to_xml_last_week_data($dataLastWeek);
+
+                    // If no data was found of the station
+                    // Print 1 row 
+                    if ($countRowsMostRecent == 0){
+                        $tableLastWeekEmpty = true;
+                        echo "<tr>";
+                            echo "<td> " . "No data found" . "</td>";
+                            echo "<td> " . "-" . "</td>"; 
+                            echo "<td> " . "-" . "</td>";
+                            echo "<td> " . "-" . "</td>";
+                        echo "</tr>";
+                    }
+
+                ?> 
+                
+            </table>
+            
+            <!--Data is only downloadable if user is logged in and table has atleast 1 row printed of values-->
+            <?php if(!empty($_SESSION['username']) and !$tableLastWeekEmpty){ ?> </br>
+                <button><a href="Measurements_Air_Pressure_Philippines_Last_Week.xml" download="Measurements_Air_Pressure_Philippines_Last_Week.xml">Download this data!</a></button> 
+            <?php } ?>
+            
+            <?php } ?>
             
         </div>
     </body>

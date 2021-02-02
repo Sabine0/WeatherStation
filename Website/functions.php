@@ -100,14 +100,13 @@ function passwordTooShort($pswd, $border) {
     return $result;
 }
 
-
 // returns true if there are too many users in the data base
 function tooManyUsers($dbcon_weatherstation, $max_users) {
     $sql = "SELECT * FROM users";
     $result = mysqli_query($dbcon_weatherstation, $sql);
     $rows = mysqli_num_rows($result);
     
-    if (!$rows >= $max_users) {
+    if ($rows >= $max_users) {
         return true;
     }
     else {
@@ -189,8 +188,8 @@ function getWeatherstation($conn, $user, $stn) {
 }
 
 // function to convert array to xml
-function array_to_xml($measurements) {
-    $xml_data = new SimpleXMLElement('<?xml version="1.0"?><MEASUREMENTS></MEASUREMENTS>'); 
+function array_to_xml_most_recent_data($measurements) {
+    $xml_data = new SimpleXMLElement('<?xml version="1.0"?><WEATHERDATA></WEATHERDATA>'); 
     foreach($measurements as $row) {
         $measurementNode = $xml_data->addChild('MEASUREMENT');
         foreach($row as $key => $value ) {
@@ -203,5 +202,23 @@ function array_to_xml($measurements) {
             }
         }
     }
-    $result = $xml_data->asXML('Measurements_Air_Pressure_Philippines.xml');
+    $result = $xml_data->asXML('Measurements_Air_Pressure_Philippines_Most_Recent.xml');
+}
+
+// function to convert array to xml
+function array_to_xml_last_week_data($measurements) {
+    $xml_data = new SimpleXMLElement('<?xml version="1.0"?><WEATHERDATA></WEATHERDATA>'); 
+    foreach($measurements as $row) {
+        $measurementNode = $xml_data->addChild('MEASUREMENT');
+        foreach($row as $key => $value ) {
+            
+            if( is_array($value) ) {
+                $subnode = $measurementNode->addChild($key);
+                array_to_xml($value, $subnode);
+            } else {
+                $measurementNode->addChild("$key",htmlspecialchars("$value"));
+            }
+        }
+    }
+    $result = $xml_data->asXML('Measurements_Air_Pressure_Philippines_Last_Week.xml');
 }
