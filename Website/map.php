@@ -8,7 +8,8 @@
         <title>Map of the Philippines</title>
         <link rel="stylesheet" href="CSS/styling.css">
         <meta http-equiv="refresh" content="30">
-    </head>
+        
+    </head> 
 
     <body>
         <div class='map-container-left'>
@@ -143,7 +144,7 @@
                     }
                     
                     // transform mostRecentData array to an XML file
-                    array_to_xml_most_recent_data($mostRecentData);
+                    array_to_xml($mostRecentData, 'Measurements_Air_Pressure_Philippines_Most_Recent.xml');
                     
                     // is true if no row is printed in the table
                     $tableMostRecentEmpty = false;
@@ -171,10 +172,9 @@
             </br>
             <table id="weatherdata">
                 </br>
-                <h2> Last 7 days </h2>
+                <h2> Average Last 7 days </h2>
                 <tr>
                     <th>Date</th>
-                    <th>Time</th>
                     <th>Air pressure</th>
                     <th>Air pressure at sea level</th>
                 </tr>
@@ -183,65 +183,87 @@
                     $countRowsLastWeek = 0;
                     // array of data from last 7 days in table for download
                     $dataLastWeek = array();
-                    // is true if no row is printed in the table
+                    // is true if no row is printed in the table                   
                     $tableLastWeekEmpty = false;
-                  $dataPerDay = array();
                     
                     
-                    
+
                     for ($i=0; $i < 7; $i++) {
                         $date = date("Y-m-d", strtotime("-" . $i . " days"));
                         $dataPerDay[$i] = 'Empty';
-                        
-                        foreach ($reversedMeasurements as $row) {
-                            if ($row['DATE'] == $date) {                               
-                                    echo "<tr>";
-                                        echo "<td> " . $row['DATE'] . "</td>";
-                                        echo "<td> " . $row['TIME'] . "</td>";
-                                        echo "<td> " . $row['STP'] . " mbar" . "</td>";
-                                        echo "<td> " . $row['SLP'] . " mbar" . "</td>";
-                                    echo "</tr>";
 
-                                    // put the data in array so that the use can download the displayed data
-                                    $dataLastWeek[$countRowsLastWeek]['DATE'] = $row['DATE'];
-                                    $dataLastWeek[$countRowsLastWeek]['TIME'] = $row['TIME'];
-                                    $dataLastWeek[$countRowsLastWeek]['STP'] = $row['STP'];
-                                    $dataLastWeek[$countRowsLastWeek]['SLP'] = $row['SLP'];
-                                    
-                                    $dataPerDay[$i] = $row['STP'];
+                        //print_r($dataLastWeek);
+                        foreach ($reversedMeasurements as $row) {
+
+                            if ($row['DATE'] == $date) {                               
+
+                                // put all data of the last week in an array
+                                $dataLastWeek[$countRowsLastWeek]['DATE'] = $row['DATE'];
+                                $dataLastWeek[$countRowsLastWeek]['TIME'] = $row['TIME'];
+                                $dataLastWeek[$countRowsLastWeek]['STP'] = $row['STP'];
+                                $dataLastWeek[$countRowsLastWeek]['SLP'] = $row['SLP'];
+
+                                $countRowsLastWeek++;
                                     
                             }
                         }
                     }
                     
-                    //print_r($dataPerDay);
-                
-                
-
-
-                    // print rows of table Last 7 days
-//                    foreach($reversedMeasurements as $row) { 
-//                        // only print if there are less rows printed than maxRows
-//                        if ($countRowsLastWeek < $maxRows) {
-//                            echo "<tr>";
-//                                echo "<td> " . $row['DATE'] . "</td>";
-//                                echo "<td> " . $row['TIME'] . "</td>";
-//                                echo "<td> " . $row['STP'] . " mbar" . "</td>";
-//                                echo "<td> " . $row['SLP'] . " mbar" . "</td>";
-//                            echo "</tr>";
-//
-//                            // put the data in array so that the use can download the displayed data
-//                            $dataLastWeek[$countRowsLastWeek]['DATE'] = $row['DATE'];
-//                            $dataLastWeek[$countRowsLastWeek]['TIME'] = $row['TIME'];
-//                            $dataLastWeek[$countRowsLastWeek]['STP'] = $row['STP'];
-//                            $dataLastWeek[$countRowsLastWeek]['SLP'] = $row['SLP'];
-//
-//                            $countRowsLastWeek++;
-//                        }
-//                    }
-
-                    // transform mostRecentData array to an XML file
-                    array_to_xml_last_week_data($dataLastWeek);
+                    $STP_sum_per_day = array();
+                    $SLP_sum_per_day = array();
+                    $countSTP = array();
+                    $countSLP = array();
+                    for ($i=0; $i < 7; $i++) {
+                        $date = date("Y-m-d", strtotime("-" . $i . " days"));
+                        $STP_sum_per_day[$i] = 0;
+                        $SLP_sum_per_day[$i] = 0;
+                        $countSTP[$i] = 0;
+                        $countSLP[$i] = 0;
+                        
+                        foreach ($dataLastWeek as $array) {
+                            if ($array['DATE'] == $date) {
+                                $STP_sum_per_day[$i] += $array['STP'];
+                                $SLP_sum_per_day[$i] += $array['SLP'];
+                                
+                                $countSTP[$i] += 1;
+                                $countSLP[$i] += 1;
+                            }                           
+                        }
+                    }
+                    
+                    //print_r($STP_sum_per_day);
+                    for ($i=0; $i<7; $i++){
+                        $today = date("Y-m-d", strtotime("-" . $i . " days"));
+                        //echo $countSTP[$i];
+                        if ($countSTP[$i] > 0){
+                            $averageSTP = round(($STP_sum_per_day[$i] / $countSTP[$i]), 1);
+                        }
+                        else {
+                            $averageSTP = 'No data';
+                        }
+                        if ($countSLP[$i] > 0) {
+                            $averageSLP = round(($SLP_sum_per_day[$i] / $countSLP[$i]), 1);
+                        } 
+                        else {
+                            $averageSLP = 'No data';
+                        }
+                        
+                        // print rows 
+                        echo '<tr>';
+                            echo "<td> " . $today . "</td>";
+                            if ($averageSTP == 'No data') {
+                                echo "<td> " . $averageSTP . " </td>";
+                            } else {
+                                echo "<td> " . $averageSTP . " mbar </td>";
+                            }
+                            if ($averageSLP == 'No data') {
+                                echo "<td> " . $averageSLP . " </td>";
+                            } else {
+                                echo "<td> " . $averageSLP . " mbar </td>";
+                            }
+                        echo '</tr>';
+                        
+                    }
 
                     // If no data was found of the station
                     // Print 1 row 
@@ -253,6 +275,12 @@
                             echo "<td> " . "-" . "</td>";
                             echo "<td> " . "-" . "</td>";
                         echo "</tr>";
+                    } 
+                    else {
+                        // transform avg last week array to an XML file
+                        array_to_xml($dataLastWeek, 'Measurements_Air_Pressure_Philippines_Average_Last_Week.xml');
+                        // transform all data last week array to an XML file
+                        array_to_xml($dataLastWeek, 'Measurements_Air_Pressure_Philippines_Last_Week.xml');
                     }
 
                 ?> 
@@ -262,9 +290,19 @@
             <!--Data is only downloadable if user is logged in and table has atleast 1 row printed of values-->
             <?php if(!empty($_SESSION['username']) and !$tableLastWeekEmpty){ ?> </br>
                 <button><a href="Measurements_Air_Pressure_Philippines_Last_Week.xml" download="Measurements_Air_Pressure_Philippines_Last_Week.xml">Download this data!</a></button> 
+                <br><br>
+                <h2> All data of last 7 days </h2>
+                <br>
+                <button><a href="Measurements_Air_Pressure_Philippines_Last_Week.xml" download="Measurements_Air_Pressure_Philippines_Last_Week.xml">Download this data!</a></button>
             <?php } ?>
             
+            
+            
+            
             <?php } ?>
+                
+            
+            
             
         </div>
     </body>

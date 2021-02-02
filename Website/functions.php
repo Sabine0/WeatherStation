@@ -188,6 +188,38 @@ function getWeatherstation($conn, $user, $stn) {
 }
 
 // function to convert array to xml
+function array_to_xml($measurements, $fileName) {
+    $xml_data = new SimpleXMLElement('<?xml version="1.0"?><WEATHERDATA></WEATHERDATA>'); 
+    foreach($measurements as $row) {
+        $measurementNode = $xml_data->addChild('MEASUREMENT');
+        foreach($row as $key => $value ) {
+            
+            if( is_array($value) ) {
+                $subnode = $measurementNode->addChild($key);
+                array_to_xml($value, $subnode);
+            } else {
+                $measurementNode->addChild("$key",htmlspecialchars("$value"));
+            }
+        }
+    }
+    $result = $xml_data->asXML($fileName);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function to convert array to xml
 function array_to_xml_most_recent_data($measurements) {
     $xml_data = new SimpleXMLElement('<?xml version="1.0"?><WEATHERDATA></WEATHERDATA>'); 
     foreach($measurements as $row) {
@@ -206,7 +238,25 @@ function array_to_xml_most_recent_data($measurements) {
 }
 
 // function to convert array to xml
-function array_to_xml_last_week_data($measurements) {
+function array_to_xml_avg_last_week($measurements) {
+    $xml_data = new SimpleXMLElement('<?xml version="1.0"?><WEATHERDATA></WEATHERDATA>'); 
+    foreach($measurements as $row) {
+        $measurementNode = $xml_data->addChild('MEASUREMENT');
+        foreach($row as $key => $value ) {
+            
+            if( is_array($value) ) {
+                $subnode = $measurementNode->addChild($key);
+                array_to_xml($value, $subnode);
+            } else {
+                $measurementNode->addChild("$key",htmlspecialchars("$value"));
+            }
+        }
+    }
+    $result = $xml_data->asXML('Measurements_Air_Pressure_Philippines_Average_Last_Week.xml');
+}
+
+// function to convert array to xml
+function array_to_xml_all_data_last_week($measurements) {
     $xml_data = new SimpleXMLElement('<?xml version="1.0"?><WEATHERDATA></WEATHERDATA>'); 
     foreach($measurements as $row) {
         $measurementNode = $xml_data->addChild('MEASUREMENT');

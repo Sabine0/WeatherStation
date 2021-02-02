@@ -5,9 +5,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="shortcut icon" type="image/png" href="afbeeldingen/favicon.png"> 
         <link rel="stylesheet" type="text/css" href="CSS/styling_header.css">
-        <link href="C:\xampp\htdocs\WeatherStation\Website\afbeeldingen\logo.png" rel="stylesheet">
-        <title></title>
     </head>
     <body>
         <div class="header">

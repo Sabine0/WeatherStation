@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <title>Weather station</title>
+        <title>University of The Philippines</title>
         <link rel="stylesheet" href="CSS/styling.css">
     </head>
         <body>
