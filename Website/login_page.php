@@ -42,16 +42,18 @@
                     <?php
                         // when de URL contains an error, display text
                         if (isset($_GET["error"])) { ?>
-                        <div class="textbox-error"> <?php
-                            if ($_GET["error"] == "signedup") {
-                                echo "<p>U heeft zich succesvol geregistreerd!";
-                            }
-                            else if ($_GET["error"] == "wronglogin") {
-                                echo "<p>Wrong login credentials! Try again.";
+                        <?php
+                            if ($_GET["error"] == "signedup") { ?>
+                            <div class="textbox-succes"> <?php
+                            echo "<p>U heeft zich succesvol geregistreerd!"; ?> </div> <?php
+                            } ?>
+                        <?php
+                            if ($_GET["error"] == "wronglogin") { ?>
+                            <div class="textbox-error"> <?php
+                            echo "<p>Wrong login credentials! Try again."; ?> </div> <?php
                             }
                         }
-                    ?>
-                        </div>
+                        ?>
 
                 </div>
             </div>
