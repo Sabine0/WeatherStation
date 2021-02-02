@@ -50,7 +50,7 @@ public class MultiThreadedServer{
                     executor.execute(new Handler(s));
 
 
-                    //System.out.println(xmlData.size());
+
                 } catch (Exception e) {
                     System.out.println(e);
                 }
