@@ -34,7 +34,7 @@ Downloadable data in XML format-->
                         require_once 'dbcon_unwdmi.php';
                         require_once 'functions.php';
 
-                        $xmldata = simplexml_load_file("WeatherData.xml") or die("Failed to load file");
+                        $xmldata = simplexml_load_file("WeatherDataHumidity.xml") or die("Failed to load file");
 
                         //All countries in Asia
                         $asia = array('ARMENIA','AZERBAIJAN','BAHRAIN','BANGLADESH','BHUTAN','BRUNEI', 'COMBODIA','CHINA','CYPRUS','GEORGIA','INDIA','INDONESIA','IRAN','IRAQ','ISREAL', 'JAPAN','JORDAN','KAZAKHSTAN','KUWAIT','KRYGZSTAN','LAOS','LEBANON','MALAYSIA','MALDIVES','MONGOLIA','MYANMAR','NEPAL','NORTH KOREA','OMAN','PAKISTAN','PALESTINE','PHILIPPINES','QATAR','RUSSIA','SAUDI ARABIA','SINGAPORE','SOUTH KOREA','SRI LANKA','SYRIA','TAIWAN','TAJIKISTAN','THAILAND','TIMOR LESTE','TURKEY','TURKMENISTAN','UNITED ARAB EMIRATES','UZBEKISTAN','VIETNAM','YEMEN');
@@ -107,30 +107,44 @@ Downloadable data in XML format-->
                         });
 
                         $top10 = array_slice($asiaAverages, 0, 9 , true);
+                        $dataOfTable = array();
 
+                        $count = 0;
                         //Iterate through created array
                         foreach ($asiaAverages as $stationCode => $winner){
                             //Find country matching the station code
                             $stationCountry = strtolower(getStationCountry($conn, $user, $stationCode)['country']);
 
                             //Get name of current weatherstation
-                            $currentWeatherstation = implode(" ", getWeatherstation($conn, $user, $stationCode));                         
+                            $currentWeatherstation = implode(" ", getWeatherstation($conn, $user, $stationCode));             
                             $currentWeatherstation = ucfirst(strtolower($currentWeatherstation));
                             
                                 echo "<tr>";
                                     echo "<td> " . $currentWeatherstation . "</td>";
                                     echo "<td> " . (string)$item->DATE . "</td>";
                                     echo "<td> " . ucfirst($stationCountry) . "</td>";
-                                    echo "<td> " . (string)$winner[0] . " ℃" . "</td>";
-                                    echo "<td> " . (string)$winner[1] .  "%</td>";
+                                    echo "<td> " . round((string)$winner[0],1) . " ℃" . "</td>";
+                                    echo "<td> " . round((string)$winner[1],1) .  "%</td>";
                                 echo "</tr>"; 
+
+                                $dataOfTable[$count]['WEATHERSTATION'] = $currentWeatherstation;
+                                $dataOfTable[$count]['DATE'] = (string)$item->DATE;
+                                $dataOfTable[$count]['COUNTRY'] = ucfirst($stationCountry);
+                                $dataOfTable[$count]['AVG TEMP'] = (string)$winner[0];
+                                $dataOfTable[$count]['HUMIDITY'] = (string)$winner[1];
+
+                                $count++;
+                                if($count>9){
+                                	break;
+                                }
                         }
+						array_to_xml($dataOfTable, 'Measurement_Humidity_Asia.xml');
                     ?>
                 </table>
 
                 </br>
                 <?php if(!empty($_SESSION['username'])){ ?>
-                    <button text-align="right"><a href="table_data_humidity_asia.php" download="WeatherData.xml">Download this data!</button>
+                    <button text-align="right"><a href="Measurement_Humidity_Asia.xml" download="Measurement_Humidity_Asia.xml">Download this data!</button>
                 <?php } ?>
             </div>
         </body>

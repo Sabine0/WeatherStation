@@ -20,14 +20,14 @@
 
             <map name="weatherstations" id="weatherstations"> 
                 <!--pixels from left, pixels from top, pixels from left, pixels from top-->
-                <area shape="rect" coords="590, 50, 610, 70" alt="Basco" href="map.php?weatherstation=Basco">
-                <area shape="rect" coords="490, 240, 510, 260" alt="Laoag" href="map.php?weatherstation=Laoag">
-                <area shape="rect" coords="480, 270, 500, 290" alt="Sinait" href="map.php?weatherstation=Sinait">
+                <area shape="rect" coords="595, 50, 615, 70" alt="Basco" href="map.php?weatherstation=Basco">
+                <area shape="rect" coords="490, 235, 510, 255" alt="Laoag" href="map.php?weatherstation=Laoag">
+                <area shape="rect" coords="480, 265, 500, 285" alt="Sinait" href="map.php?weatherstation=Sinait">
                 <area shape="rect" coords="570, 230, 590, 250" alt="Aparri" href="map.php?weatherstation=Aparri">
                 <area shape="rect" coords="445, 475, 465, 495" alt="Iba" href="map.php?weatherstation=Iba">
-                <area shape="rect" coords="470, 420, 490, 440" alt="Dagupan" href="map.php?weatherstation=Dagupan">
-                <area shape="rect" coords="490, 390, 510, 410" alt="Baguio" href="map.php?weatherstation=Baguio">
-                <area shape="rect" coords="530, 465, 550, 485" alt="Cabanatuan" href="map.php?weatherstation=Cabanatuan">
+                <area shape="rect" coords="475, 415, 495, 435" alt="Dagupan" href="map.php?weatherstation=Dagupan">
+                <area shape="rect" coords="495, 380, 515, 400" alt="Baguio" href="map.php?weatherstation=Baguio">
+                <area shape="rect" coords="535, 465, 555, 485" alt="Cabanatuan" href="map.php?weatherstation=Cabanatuan">
                 <area shape="rect" coords="520, 545, 540, 565" alt="Manila" href="map.php?weatherstation=Manila">
                 <area shape="rect" coords="460, 520, 480, 540" alt="Subic Bay" href="map.php?weatherstation=Subic+Bay">
                 <area shape="rect" coords="525, 530, 545, 550" alt="Science garden" href="map.php?weatherstation=Science+garden">
@@ -54,7 +54,7 @@
                 <area shape="rect" coords="740, 890, 760, 910" alt="Lahug" href="map.php?weatherstation=Lahug">
                 <area shape="rect" coords="740, 905, 760, 925" alt="Mactan" href="map.php?weatherstation=Mactan">
                 <area shape="rect" coords="860, 930, 880, 950" alt="Surigao" href="map.php?weatherstation=Surigao">
-                <area shape="rect" coords="785, 1055, 805, 1075" alt="Lumbia Airport" href="map.php?weatherstation=Lumbia+Airport">
+                <area shape="rect" coords="790, 1055, 810, 1075" alt="Lumbia Airport" href="map.php?weatherstation=Lumbia+Airport">
                 <area shape="rect" coords="795, 1040, 815, 1060" alt="Cagayan de Oro" href="map.php?weatherstation=Cagayan+de+Oro">
                 <area shape="rect" coords="860, 1005, 880, 1025" alt="Butuan" href="map.php?weatherstation=Butuan">
                 <area shape="rect" coords="870, 1160, 890, 1180" alt="Davao Airport" href="map.php?weatherstation=Davao+Airport">
@@ -305,14 +305,8 @@
                 <button><a href="Measurements_Air_Pressure_Philippines_Last_Week.xml" download="Measurements_Air_Pressure_Philippines_Last_Week.xml">Download this data!</a></button>
             <?php } ?>
             
-            
-            
-            
             <?php } ?>
-                
-            
-            
-            
+                    
         </div>
     </body>
 </html>
