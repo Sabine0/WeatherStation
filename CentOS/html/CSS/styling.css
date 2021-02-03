@@ -1,0 +1,204 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+
+    background-image: url("../afbeeldingen/backgroundBlurred.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.login-box {
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.login-box h1 {
+    float: left;
+    font-size: 40px;
+    border-bottom: 6px solid #4caf50;
+    margin-bottom: 50px;
+    padding: 13px 0;
+}
+
+.textbox-error {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-bottom: 20px;
+    margin-top: 10%;
+    color: red;
+}
+
+.textbox-succes {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-bottom: 20px;
+    margin-top: 45px;
+    color: #4caf50;
+}
+
+.textbox {
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid #4caf50;
+}
+
+.textbox i {
+    width: 26px;
+    float: left;
+    text-align: center;
+}
+
+.textbox input {
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+}
+
+.login-background {
+    width:370px; 
+    height: 380px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 15px; 
+} 
+
+.start-background {
+    width:750px; 
+    height:650px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 3px;  
+}
+
+.start-box {
+    width: 555px;
+    margin: 0 auto;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    padding-bottom: 60px;
+}
+
+.img-box {
+    display: block;
+    width: 750px;
+    height: 120px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.signup-background {
+    width:370px; 
+    height:400px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 15px; 
+}
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+    font-size: 12px;
+}
+
+.map-container-left {
+    float: left;
+    width: auto;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.map-container-right {
+    float: left;
+    width: auto;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    
+    padding-top: 20px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+#weatherdata {
+    font-family: Arial;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+#weatherdata td, #weatherdata th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#weatherdata tr:nth-child(even){background-color: #f2f2f2;}
+
+#weatherdata tr:nth-child(odd){background-color: white;}
+
+#weatherdata th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: left;
+  background-color: #101010;
+  color: white;
+  font-size: 14px;
+}
+
+.map-container {
+    width:auto; 
+    height:auto; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 3px;  
+}
+
+.container-humidity-asia {
+    text-align: center;
+    width: 50%;
+    margin-left: 23%;
+
+    
+    
+    padding-top: 20px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.85);
+}

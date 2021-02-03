@@ -1,0 +1,7 @@
+#Redirect permanent / https://10.0.21.4
+
+Redirect /var/www/html/index.html /var/www/html/start.php
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
