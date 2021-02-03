@@ -24,7 +24,7 @@ function usernameExists($conn, $username) {
     $sql = "SELECT * FROM users WHERE username = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=stmtfailed");
+        header("location: signup_page.php?error=stmtfailed");
         exit();
     }
     mysqli_stmt_bind_param($stmt, "s", $username);
@@ -49,14 +49,14 @@ function createUser($conn, $user, $username, $pswd) {
     $sql = "INSERT INTO users (username, password) VALUES (?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=stmtfailed");
+        header("location: signup_page.php?error=stmtfailed");
         exit();
     }
 
     mysqli_stmt_bind_param($stmt, "ss", $username, $pswd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: http://localhost/WeatherStation/Website/login_page.php?error=signedup");
+    header("location: login_page.php?error=signedup");
     exit();
 }
 
@@ -64,7 +64,7 @@ function loginUser($conn, $username, $pswd) {
     $pswd = sha1($pswd);
     $usernameExists = usernameExists($conn, $username);
     if ($usernameExists === false) {
-        header("location: ../Website/login_page.php?error=wronglogin");
+        header("location: login_page.php?error=wronglogin");
         exit();
     }
 
@@ -73,11 +73,11 @@ function loginUser($conn, $username, $pswd) {
     if ($pswddb == $pswd){
         session_start();
         $_SESSION['username'] = $username;
-        header("location: ../Website/start.php");
+        header("location: start.php");
         exit();
     }
  
-    header("location: ../Website/login_page.php?error=wronglogin");
+    header("location: login_page.php?error=wronglogin");
     exit();
   
 }
@@ -119,7 +119,7 @@ function getStationCode($conn, $user, $weatherstation) {
     $sql = "SELECT stn FROM stations WHERE name = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: http://localhost/WeatherStation/Website/map.php?error=stmtfailed");
+        header("location: map.php?error=stmtfailed");
         exit();
     }
     mysqli_stmt_bind_param($stmt, "s", $weatherstation);
@@ -144,7 +144,7 @@ function getStationCountry($conn, $user, $stationCode) {
     $sql = "SELECT country FROM stations WHERE stn = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: http://localhost/WeatherStation/Website/map.php?error=stmtfailed");
+        header("location: map.php?error=stmtfailed");
         exit();
     }
     mysqli_stmt_bind_param($stmt, "s", $stationCode);
@@ -168,7 +168,7 @@ function getWeatherstation($conn, $user, $stn) {
     $sql = "SELECT name FROM stations WHERE stn = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: http://localhost/WeatherStation/Website/map.php?error=stmtfailed");
+        header("location: map.php?error=stmtfailed");
         exit();
     }
     mysqli_stmt_bind_param($stmt, "s", $stn);
