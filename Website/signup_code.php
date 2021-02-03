@@ -10,32 +10,32 @@ if (isset($_POST["submit"])) {
     require_once 'functions.php';
 
     if (invalidUsername($username) !== false) {
-        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=invalidusername");
+        header("location: signup_page.php?error=invalidusername");
         exit();
     }
 
     if (usernameExists($conn, $username) !== false) {
-        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=usernametaken");
+        header("location: signup_page.php?error=usernametaken");
         exit();
     }
 
     if (pswdDoesntMatch($pswd, $pswdRepeat) !== false) {
-        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=passwordsdontmatch");
+        header("location: signup_page.php?error=passwordsdontmatch");
         exit();
     }
     
     if (usernameTooShort($username, 5) !== false) {
-        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=usernametooshort");
+        header("location: signup_page.php?error=usernametooshort");
         exit();
     }
     
     if (passwordTooShort($pswd, 5) !== false) {
-        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=passwordtooshort");
+        header("location: signup_page.php?error=passwordtooshort");
         exit();
     }
     
     if (tooManyUsers($dbcon_weatherstation, 25) !== false) {
-        header("location: http://localhost/WeatherStation/Website/signup_page.php?error=toomanyusers");
+        header("location: signup_page.php?error=toomanyusers");
         exit();
     }
     
@@ -43,7 +43,7 @@ if (isset($_POST["submit"])) {
 
 }
 else {
-    header("location: http://localhost/WeatherStation/Website/signup_page.php");
+    header("location: signup_page.php");
     exit();
 }
 

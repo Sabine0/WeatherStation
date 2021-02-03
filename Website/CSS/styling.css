@@ -190,7 +190,15 @@ body {
 }
 
 .container-humidity-asia {
-    margin-top: 20px;
-    margin-left: 20%;
-    margin-right: 20%;
+    text-align: center;
+    width: 50%;
+    margin-left: 23%;
+
+    
+    
+    padding-top: 20px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.85);
 }

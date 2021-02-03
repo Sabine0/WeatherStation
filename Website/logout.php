@@ -2,5 +2,5 @@
 
 session_start(); 
 session_destroy(); 
-header("location: ../Website/start.php"); 
+header("location: start.php"); 
 exit();

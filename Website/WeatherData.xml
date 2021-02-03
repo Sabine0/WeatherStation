@@ -338,7 +338,7 @@
         </MEASUREMENT>
         <MEASUREMENT>
                 <STN>981350</STN>
-                <DATE>2021-01-27</DATE>
+                <DATE>2021-01-30</DATE>
                 <TIME>16:04:04</TIME>
                 <TEMP>-32.6</TEMP>
                 <DEWP>-34.7</DEWP>
@@ -354,7 +354,7 @@
         </MEASUREMENT>
         <MEASUREMENT>
                 <STN>981350</STN>
-                <DATE>2021-01-27</DATE>
+                <DATE>2021-01-28</DATE>
                 <TIME>16:04:04</TIME>
                 <TEMP>-32.6</TEMP>
                 <DEWP>-34.7</DEWP>
@@ -370,7 +370,7 @@
         </MEASUREMENT>
         <MEASUREMENT>
                 <STN>981350</STN>
-                <DATE>2021-01-27</DATE>
+                <DATE>2021-01-29</DATE>
                 <TIME>16:04:04</TIME>
                 <TEMP>-32.6</TEMP>
                 <DEWP>-34.7</DEWP>
@@ -386,7 +386,7 @@
         </MEASUREMENT>
         <MEASUREMENT>
                 <STN>981350</STN>
-                <DATE>2021-01-27</DATE>
+                <DATE>2021-01-29</DATE>
                 <TIME>16:04:04</TIME>
                 <TEMP>-32.6</TEMP>
                 <DEWP>-34.7</DEWP>
@@ -402,7 +402,7 @@
         </MEASUREMENT>
         <MEASUREMENT>
                 <STN>981350</STN>
-                <DATE>2021-01-27</DATE>
+                <DATE>2021-01-29</DATE>
                 <TIME>16:04:04</TIME>
                 <TEMP>-32.6</TEMP>
                 <DEWP>-34.7</DEWP>
@@ -418,7 +418,7 @@
         </MEASUREMENT>
         <MEASUREMENT>
                 <STN>981350</STN>
-                <DATE>2021-01-27</DATE>
+                <DATE>2021-01-29</DATE>
                 <TIME>16:04:04</TIME>
                 <TEMP>-32.6</TEMP>
                 <DEWP>-34.7</DEWP>
@@ -434,7 +434,7 @@
         </MEASUREMENT>
         <MEASUREMENT>
                 <STN>981350</STN>
-                <DATE>2021-01-27</DATE>
+                <DATE>2021-01-29</DATE>
                 <TIME>16:04:04</TIME>
                 <TEMP>-32.6</TEMP>
                 <DEWP>-34.7</DEWP>
@@ -450,7 +450,23 @@
         </MEASUREMENT>
         <MEASUREMENT>
                 <STN>981350</STN>
-                <DATE>2021-01-27</DATE>
+                <DATE>2021-01-29</DATE>
+                <TIME>16:04:04</TIME>
+                <TEMP>-32.6</TEMP>
+                <DEWP>-34.7</DEWP>
+                <STP>1048.5</STP>
+                <SLP>1033.0</SLP>
+                <VISIB>13.8</VISIB>
+                <WDSP>9.3</WDSP>
+                <PRCP>0.03</PRCP>
+                <SNDP>0.0</SNDP>
+                <FRSHTT>110000</FRSHTT>
+                <CLDC>50.1</CLDC>
+                <WNDDIR>86</WNDDIR>
+        </MEASUREMENT>
+        <MEASUREMENT>
+                <STN>981350</STN>
+                <DATE>2021-02-01</DATE>
                 <TIME>16:04:04</TIME>
                 <TEMP>-32.6</TEMP>
                 <DEWP>-34.7</DEWP>
