@@ -202,5 +202,5 @@ function array_to_xml($measurements, $fileName) {
             }
         }
     }
-    $result = $xml_data->asXML($fileName);
+    $xml_data->asXML($fileName);
 }
