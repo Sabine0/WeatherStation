@@ -12,22 +12,21 @@ Downloadable data in XML format-->
         <meta http-equiv="refresh" content="30">
         <style>
             table {
-              margin: 0 auto; 
+              margin: 0 auto;
               margin-top: 2%;
             }
         </style>
     </head>
         <body>
             <div class="container-humidity-asia">
-                <h2> Humidity of top 10 weather stations in Asia with an average temperature between 27 and 29.5 degrees Celcius.</h2>
+                <h2> Top 10 weather stations in Asia with the highest humidity per day</h2>
+                <h3> Limited to the weather stations with a daily temperature between 27 and 29.5</h3>
                 <table id="weatherdata">
                     <tr>
-                        <th>STN</th> <!--Only for testing-->
                         <th>Weatherstation</th>
                         <th>Date</th>
-                        <th>Time</th>
-                        <th>Location</th>
-                        <th>Avg temperature</th>
+                        <th>Country</th>
+                        <th>Average temperature</th>
                         <th>Humidity</th>
                     </tr>
 
@@ -40,58 +39,91 @@ Downloadable data in XML format-->
                         //All countries in Asia
                         $asia = array('ARMENIA','AZERBAIJAN','BAHRAIN','BANGLADESH','BHUTAN','BRUNEI', 'COMBODIA','CHINA','CYPRUS','GEORGIA','INDIA','INDONESIA','IRAN','IRAQ','ISREAL', 'JAPAN','JORDAN','KAZAKHSTAN','KUWAIT','KRYGZSTAN','LAOS','LEBANON','MALAYSIA','MALDIVES','MONGOLIA','MYANMAR','NEPAL','NORTH KOREA','OMAN','PAKISTAN','PALESTINE','PHILIPPINES','QATAR','RUSSIA','SAUDI ARABIA','SINGAPORE','SOUTH KOREA','SRI LANKA','SYRIA','TAIWAN','TAJIKISTAN','THAILAND','TIMOR LESTE','TURKEY','TURKMENISTAN','UNITED ARAB EMIRATES','UZBEKISTAN','VIETNAM','YEMEN');
 
-                        //To be continued?
-						// foreach($xmldata->MEASUREMENT as $item){	
-							//Get the station code
-                            // $stationCode = (string)$item->STN;
-                            
-                            //Find country matching the station code
-                            // $stationCountry = getStationCountry($conn, $user, $stationCode)['country'];
-
-                            //Only process data if country is in Asia
-							// if(in_array($stationCountry, $asia)){
-								// print_r($item);
-
-
-								//array: $asiaStations = STN => array(DATE => array(temperatures))
-
-								// if $stationCode is in $asiaStations:
-									// does current_date exist in dateArray?
-										//yes: add temperature to temperatureArray where key=current_date
-										//no: add current_date to current_STN and add current_temperature to temperature array
-									//else: add $stationCode to $asiaStation
-
-							// }
-						// }
-
-
-
-                        //Iterate through XML
-                        foreach ($xmldata->MEASUREMENT as $item){
-                            //Get the station code
+                        $asiaData = array();
+                        //Iterate through the XML file
+                        foreach($xmldata->MEASUREMENT as $item){ 
                             $stationCode = (string)$item->STN;
-                            //echo $stationCode . " ";
-                            
-                            //Find country matching the station code
+                            // Find country matching the station code
                             $stationCountry = getStationCountry($conn, $user, $stationCode)['country'];
-                            //echo $stationCountry . ", ";
+                            $stationDate = (string)$item->DATE;
+                            $stationTemp = (float)$item->TEMP;
+                            $stationHumidity = (float)$item->CLDC;
 
+                            // Only process data if country is in Asia
                             if(in_array($stationCountry, $asia)){
+                                if(!array_key_exists($stationCode, $asiaData)){
+                                    $asiaData[$stationCode] = [];
+                                }
+
+                                if(!array_key_exists($stationDate, $asiaData[$stationCode])) {
+                                    $asiaData[$stationCode][$stationDate] = array(array(), array());
+                                }
+                        
+                                $asiaData[$stationCode][$stationDate][0][] = $stationTemp;
+                                $asiaData[$stationCode][$stationDate][1][] = $stationHumidity;
+                            }
+                        }
+
+                        $asiaAverages = array();
+                        //Iterate through array
+                        foreach($asiaData as $name=>$station) {
+
+                            $dailyTemp = 0;
+                            $dailyHumid = 0;
+
+                            foreach($station as $date) {
+
+                                $temp_acc = 0;
+                                $humid_acc = 0;
+
+                                foreach($date[0] as $temp) {
+                                    $temp_acc += $temp;
+
+                                }
+
+                                foreach($date[1] as $humid) {
+                                    $humid_acc += $humid;
+                                }
+
+                                $dailyTemp += $temp_acc / count($date[0]);
+                                $dailyHumid += $humid_acc / count($date[1]);
+
+                            }
+
+                            $averageTemp = $dailyTemp / count($station);
+                            $averageHumid = $dailyHumid / count($station);
+
+
+                            if ($averageTemp > 27 && $averageTemp < 29.5) {
+                                $asiaAverages[$name] = array($averageTemp, $averageHumid);
+                            }
+                        }
+
+                        $len = count($asiaAverages);
+
+                        uasort($asiaAverages, function($first, $second) {
+                            if ($first[1] == $second[1]) return 0;
+                            return ($first[1] < $second[1]) ? 1 : -1;
+                        });
+
+                        $top10 = array_slice($asiaAverages, 0, 9 , true);
+
+                        //Iterate through created array
+                        foreach ($asiaAverages as $stationCode => $winner){
+                            //Find country matching the station code
+                            $stationCountry = strtolower(getStationCountry($conn, $user, $stationCode)['country']);
 
                             //Get name of current weatherstation
                             $currentWeatherstation = implode(" ", getWeatherstation($conn, $user, $stationCode));                         
                             $currentWeatherstation = ucfirst(strtolower($currentWeatherstation));
                             
                                 echo "<tr>";
-                                    echo "<td> " . (string)$item->STN . "</td>"; // Only for testing
                                     echo "<td> " . $currentWeatherstation . "</td>";
                                     echo "<td> " . (string)$item->DATE . "</td>";
-                                    echo "<td> " . (string)$item->TIME . "</td>";
-                                    echo "<td> " . $stationCountry . "</td>";
-                                    echo "<td> " . (string)$item->TEMP . " ℃" . "</td>"; // Has to be changed to average temperature!
-                                    echo "<td> " . (string)$item->CLDC .  "%</td>";
-                                echo "</tr>";
-                            }	
+                                    echo "<td> " . ucfirst($stationCountry) . "</td>";
+                                    echo "<td> " . (string)$winner[0] . " ℃" . "</td>";
+                                    echo "<td> " . (string)$winner[1] .  "%</td>";
+                                echo "</tr>"; 
                         }
                     ?>
                 </table>
