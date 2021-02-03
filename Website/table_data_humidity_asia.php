@@ -20,7 +20,7 @@ Downloadable data in XML format-->
         <body>
             <div class="container-humidity-asia">
                 <h2> Top 10 weather stations in Asia with the highest humidity per day</h2>
-                <h3> Limited to the weather stations with a daily temperature between 27 and 29.5</h3>
+                <h3> Limited to the weather stations with a daily temperature between 27 and 29.5 degrees Celsius</h3>
                 <table id="weatherdata">
                     <tr>
                         <th>Weatherstation</th>
